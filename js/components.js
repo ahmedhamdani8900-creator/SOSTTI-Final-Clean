@@ -320,61 +320,74 @@ class ComponentManager {
 
 // === Global Loading Screen ===
 document.addEventListener("DOMContentLoaded", () => {
-  // Create Loader Element
-  const loader = document.createElement('div');
-  loader.id = 'loader';
-  loader.innerHTML = `
-    <div style="text-align:center">
-      <img src="../images/SOS Logo.png" alt="SOSTTI Logo" id="loader-logo">
-    </div>
-  `;
-  document.body.appendChild(loader);
+    // Create Loader Element
+    const loader = document.createElement('div');
+    loader.id = 'loader';
+    loader.innerHTML = `
+        <div style="text-align:center">
+            <img src="../images/SOS Logo.png" alt="SOSTTI Logo" id="loader-logo">
+        </div>
+    `;
+    document.body.appendChild(loader);
 
-  // Add Loader CSS
-  const style = document.createElement('style');
-  style.textContent = `
-    #loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #ffffff;
-      backdrop-filter: blur(3px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
-    }
+    // Add Loader CSS
+    const style = document.createElement('style');
+    style.textContent = `
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            backdrop-filter: blur(3px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
 
-    #loader-logo {
-      width: 120px;
-      animation: pulse 1.5s infinite ease-in-out;
-    }
+        #loader-logo {
+            width: 120px;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.1); opacity: 0.8; }
-    }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
 
-    #loader.hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-  `;
-  document.head.appendChild(style);
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+    `;
+    document.head.appendChild(style);
 
-  // Hide Loader When Page Fully Loaded
-  window.addEventListener("load", () => {
+    // Hide Loader When Page Fully Loaded
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            loader.classList.add("hidden");
+            console.log('✅ Loader hidden - typing effect should start soon');
+            
+            // Force start typing effect if it hasn't started
+            setTimeout(() => {
+                if (window.typingInstance && !window.typingInstance.isRunning) {
+                    window.typingInstance.start();
+                }
+            }, 1000);
+        }, 1500);
+    });
+
+    // Store typing instance globally for debugging
+    window.typingInstance = null;
     setTimeout(() => {
-      loader.classList.add("hidden");
-      // Start typing effect after loader is hidden
-      if (typeof initTypingEffect === 'function') {
-        setTimeout(initTypingEffect, 300); // Small delay after loader hides
-      }
-    }, 1500);
-  });
+        if (window.TypingEffect) {
+            window.typingInstance = new TypingEffect();
+        }
+    }, 2000);
 });
 
 
