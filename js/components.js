@@ -339,8 +339,8 @@ document.addEventListener("DOMContentLoaded", () => {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #ffffff; /* <-- No white background */
-      backdrop-filter: blur(3px); /* Optional blur behind logo */
+      background-color: #ffffff;
+      backdrop-filter: blur(3px);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -369,7 +369,11 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("load", () => {
     setTimeout(() => {
       loader.classList.add("hidden");
-    }, 1500); // keeps loader visible for at least 1.5 seconds
+      // Start typing effect after loader is hidden
+      if (typeof initTypingEffect === 'function') {
+        setTimeout(initTypingEffect, 300); // Small delay after loader hides
+      }
+    }, 1500);
   });
 });
 
