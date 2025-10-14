@@ -318,6 +318,61 @@ class ComponentManager {
     }
 }
 
+// === Global Loading Screen ===
+document.addEventListener("DOMContentLoaded", () => {
+  // Create Loader Element
+  const loader = document.createElement('div');
+  loader.id = 'loader';
+  loader.innerHTML = `
+    <div style="text-align:center">
+      <img src="../images/SOS Logo.png" alt="SOSTTI Logo" id="loader-logo">
+      <p style="font-family: Arial, sans-serif; color: #016390; margin-top: 10px;">
+        Empowering Through Technical & Digital Education
+      </p>
+    </div>
+  `;
+  document.body.appendChild(loader);
+
+  // Add Loader CSS
+  const style = document.createElement('style');
+  style.textContent = `
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    #loader-logo {
+      width: 120px;
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.7; }
+    }
+    #loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Hide Loader When Page Fully Loaded
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      loader.classList.add("hidden");
+    }, 1500); // keeps loader visible for at least 1.5 seconds
+  });
+});
+
+
 // Initialize ComponentManager when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     new ComponentManager();
