@@ -372,7 +372,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
 // Initialize ComponentManager when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     new ComponentManager();
