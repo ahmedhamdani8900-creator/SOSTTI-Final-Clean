@@ -117,7 +117,7 @@ function addTypingStyles() {
         
         .typing-text {
             display: inline;
-            font-size: 2.2em;
+            font-size: 2em;
             font-weight: bold;
             white-space: nowrap;
         }
