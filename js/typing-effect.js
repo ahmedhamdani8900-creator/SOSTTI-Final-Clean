@@ -1,7 +1,8 @@
-// Fixed Typing Effect - Clears existing content
+// Typing Effect for Separate Cursor Element
 class TypingEffect {
     constructor() {
         this.typingElement = null;
+        this.cursorElement = null;
         this.texts = [
             "NAVTTC Accredited Institute",
             "Empowering Youth Through Technical, Computer and English Skills",
@@ -35,17 +36,26 @@ class TypingEffect {
 
     start() {
         this.typingElement = document.getElementById('typing-text');
+        this.cursorElement = document.querySelector('.typing-cursor');
         
         if (!this.typingElement) {
             console.error('❌ Typing element (#typing-text) not found');
             return;
         }
 
-        // ✅ CRITICAL FIX: Clear existing content
+        if (!this.cursorElement) {
+            console.error('❌ Cursor element (.typing-cursor) not found');
+        }
+
+        // Clear existing content
         this.typingElement.innerHTML = '';
-        this.typingElement.style.minHeight = '60px'; // Ensure consistent height
         
-        console.log('🎬 Starting typing effect on clean element');
+        // Show cursor
+        if (this.cursorElement) {
+            this.cursorElement.style.display = 'inline-block';
+        }
+        
+        console.log('🎬 Starting typing effect');
         this.isRunning = true;
         this.type();
     }
@@ -57,7 +67,6 @@ class TypingEffect {
         
         // Update text content
         this.typingElement.textContent = currentText.substring(0, this.charIndex);
-        this.typingElement.classList.add('typing-cursor');
 
         if (!this.isDeleting) {
             // Typing forward
@@ -85,36 +94,47 @@ class TypingEffect {
 
     stop() {
         this.isRunning = false;
-        if (this.typingElement) {
-            this.typingElement.classList.remove('typing-cursor');
+        // Hide cursor when stopped
+        if (this.cursorElement) {
+            this.cursorElement.style.display = 'none';
         }
     }
 }
 
-// Add CSS for typing effect
+// Add CSS for typing effect container
 function addTypingStyles() {
     if (document.getElementById('typing-styles')) return;
     
     const style = document.createElement('style');
     style.id = 'typing-styles';
     style.textContent = `
+        .typing-container {
+            text-align: center;
+            margin: 20px auto;
+            display: block;
+            min-height: 60px;
+        }
+        
+        .typing-text {
+            display: inline;
+            font-size: 1.2em;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        
         .typing-cursor {
-            border-right: 2px solid #333;
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background-color: #333;
+            margin-left: 2px;
             animation: blink 1s infinite;
+            vertical-align: middle;
         }
         
         @keyframes blink {
-            0%, 100% { border-color: #333; }
-            50% { border-color: transparent; }
-        }
-        
-        #typing-text {
-            min-height: 60px;
-            display: block;
-            font-size: 1.2em;
-            font-weight: bold;
-            text-align: center;
-            margin: 20px auto;
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
     `;
     document.head.appendChild(style);
@@ -124,7 +144,12 @@ function addTypingStyles() {
 document.addEventListener('DOMContentLoaded', function() {
     addTypingStyles();
     
-    // Wait a bit longer to ensure DOM is fully ready
+    // Ensure the cursor is initially hidden
+    const cursorElement = document.querySelector('.typing-cursor');
+    if (cursorElement) {
+        cursorElement.style.display = 'none';
+    }
+    
     setTimeout(() => {
         new TypingEffect();
     }, 500);
