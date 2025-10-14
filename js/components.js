@@ -339,21 +339,25 @@ document.addEventListener("DOMContentLoaded", () => {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #ffffff;
+      background-color: transparent; /* <-- No white background */
+      backdrop-filter: blur(3px); /* Optional blur behind logo */
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 9999;
       transition: opacity 0.6s ease, visibility 0.6s ease;
     }
+
     #loader-logo {
       width: 120px;
       animation: pulse 1.5s infinite ease-in-out;
     }
+
     @keyframes pulse {
       0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.1); opacity: 0.7; }
+      50% { transform: scale(1.1); opacity: 0.8; }
     }
+
     #loader.hidden {
       opacity: 0;
       visibility: hidden;
@@ -368,6 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1500); // keeps loader visible for at least 1.5 seconds
   });
 });
+
 
 // Initialize ComponentManager when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
