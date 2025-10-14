@@ -1,4 +1,4 @@
-// Typing Effect for Separate Cursor Element
+// Typing Effect for Separate Cursor Element with Mobile Responsive
 class TypingEffect {
     constructor() {
         this.typingElement = null;
@@ -101,7 +101,7 @@ class TypingEffect {
     }
 }
 
-// Add CSS for typing effect container
+// Add CSS for typing effect container with mobile responsive cursor
 function addTypingStyles() {
     if (document.getElementById('typing-styles')) return;
     
@@ -113,6 +113,9 @@ function addTypingStyles() {
             margin: 20px auto;
             display: block;
             min-height: 60px;
+            width: 100%;
+            padding: 0 15px;
+            box-sizing: border-box;
         }
         
         .typing-text {
@@ -120,12 +123,13 @@ function addTypingStyles() {
             font-size: 2em;
             font-weight: bold;
             white-space: nowrap;
+            color: #333;
+            line-height: 1.4;
         }
         
         .typing-cursor {
             display: inline-block;
-            width: 2px;
-            height: 2em;
+            width: 3px;
             background-color: #333;
             margin-left: 2px;
             animation: blink 1s infinite;
@@ -135,6 +139,121 @@ function addTypingStyles() {
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
+        }
+
+        /* Desktop - Large screens */
+        @media (min-width: 1201px) {
+            .typing-text {
+                font-size: 2.5em;
+            }
+            .typing-container {
+                min-height: 80px;
+            }
+            .typing-cursor {
+                height: 2.2em;
+            }
+        }
+
+        /* Desktop - Standard screens */
+        @media (min-width: 1025px) and (max-width: 1200px) {
+            .typing-text {
+                font-size: 2.2em;
+            }
+            .typing-cursor {
+                height: 2em;
+            }
+        }
+
+        /* Tablet - Landscape */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .typing-text {
+                font-size: 1.8em;
+                white-space: normal;
+                display: inline;
+            }
+            .typing-container {
+                min-height: 100px;
+            }
+            .typing-cursor {
+                height: 1.8em;
+            }
+        }
+
+        /* Tablet - Portrait & Large Mobile */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .typing-text {
+                font-size: 1.6em;
+                white-space: normal;
+                display: inline;
+                line-height: 1.3;
+            }
+            .typing-container {
+                min-height: 120px;
+                margin: 15px auto;
+            }
+            .typing-cursor {
+                height: 1.6em;
+            }
+        }
+
+        /* Mobile - Small screens */
+        @media (max-width: 480px) {
+            .typing-text {
+                font-size: 1.4em;
+                white-space: normal;
+                display: inline;
+                line-height: 1.3;
+                text-align: center;
+            }
+            .typing-container {
+                min-height: 140px;
+                margin: 10px auto;
+                padding: 0 10px;
+            }
+            .typing-cursor {
+                height: 1.4em;
+            }
+        }
+
+        /* Mobile - Extra small screens */
+        @media (max-width: 360px) {
+            .typing-text {
+                font-size: 1.2em;
+                line-height: 1.2;
+            }
+            .typing-container {
+                min-height: 120px;
+            }
+            .typing-cursor {
+                height: 1.2em;
+            }
+        }
+
+        /* Handle multi-line text with cursor */
+        @media (max-width: 768px) {
+            .typing-text {
+                word-wrap: break-word;
+                word-break: break-word;
+                overflow-wrap: break-word;
+                display: inline;
+            }
+            
+            .typing-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 0;
+            }
+            
+            .typing-cursor {
+                align-self: center;
+            }
+        }
+
+        /* Ensure cursor stays aligned with text on all screens */
+        .typing-text, .typing-cursor {
+            vertical-align: middle;
         }
     `;
     document.head.appendChild(style);
