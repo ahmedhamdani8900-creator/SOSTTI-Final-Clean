@@ -339,7 +339,7 @@ document.addEventListener("DOMContentLoaded", () => {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(1, 99, 144, 0.2); /* <-- No white background */
+      background-color: #ffffff; /* <-- No white background */
       backdrop-filter: blur(3px); /* Optional blur behind logo */
       display: flex;
       justify-content: center;
