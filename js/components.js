@@ -183,6 +183,15 @@ class ComponentManager {
         this.setupMobileMenu();
         this.setupDropdowns();
         this.setupEventListeners();
+        this.setupDarkMode();
+    }
+
+    /**
+     * Setup dark mode toggle
+     */
+    setupDarkMode() {
+        // Dark mode will be initialized by dark-mode.js
+        console.log('🌓 Dark mode ready');
     }
 
     /**
