@@ -45,5 +45,19 @@ function initTypingEffect() {
     type();
 }
 
-// Auto-start when page fully loads
-window.addEventListener('load', initTypingEffect);
+// Start typing effect after loader finishes
+function startTypingAfterLoader() {
+    // Wait for loader to be hidden, then start typing
+    const checkLoader = setInterval(() => {
+        const loader = document.getElementById('loader');
+        if (loader && loader.classList.contains('hidden')) {
+            clearInterval(checkLoader);
+            initTypingEffect();
+        }
+    }, 100);
+}
+
+// Listen for when loader is hidden
+document.addEventListener('DOMContentLoaded', function() {
+    startTypingAfterLoader();
+});
