@@ -326,9 +326,6 @@ document.addEventListener("DOMContentLoaded", () => {
   loader.innerHTML = `
     <div style="text-align:center">
       <img src="../images/SOS Logo.png" alt="SOSTTI Logo" id="loader-logo">
-      <p style="font-family: Arial, sans-serif; color: #016390; margin-top: 10px;">
-        Empowering Through Technical & Digital Education
-      </p>
     </div>
   `;
   document.body.appendChild(loader);
