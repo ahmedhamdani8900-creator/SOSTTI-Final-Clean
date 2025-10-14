@@ -125,7 +125,7 @@ function addTypingStyles() {
         .typing-cursor {
             display: inline-block;
             width: 2px;
-            height: 1.2em;
+            height: 2em;
             background-color: #333;
             margin-left: 2px;
             animation: blink 1s infinite;
