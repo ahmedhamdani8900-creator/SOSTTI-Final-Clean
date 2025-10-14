@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - SOS Technical Training Institute</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/myStyle.css">
+      
+    <style>
+        :root {
+            --primary: rgba(0, 174, 255, 0.9);
+            --primary-dark: rgba(1, 99, 144, 0.9);
+            --primary-light: #26a69a;
+            --secondary: #00897b;
+            --accent: #00bcd4;
+            --light: #e0f2f1;
+            --white: #ffffff;
+            --text: rgba(1, 99, 144, 0.9);
+            --text-light: rgba(1, 99, 144, 0.9);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        /* Your existing CSS remains the same */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 50px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--text);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--white);
+            min-width: 250px;
+            box-shadow: var(--shadow);
+            border-radius: 4px;
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            padding: 10px 0;
+        }
+
+        .dropdown-content a {
+            color: var(--text);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--light);
+            color: var(--accent);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-arrow {
+            margin-left: 5px;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Nested Dropdown Styles */
+        .nested-dropdown {
+            position: relative;
+        }
+
+        .nested-dropdown-content {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: var(--white);
+            min-width: 250px;
+            box-shadow: var(--shadow);
+            border-radius: 4px;
+            z-index: 1;
+            padding: 10px 0;
+        }
+
+        .nested-dropdown:hover .nested-dropdown-content {
+            display: block;
+        }
+
+        .nested-arrow {
+            margin-left: auto;
+            font-size: 0.8rem;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        /* Events Hero Section */
+        .events-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: white;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Event Cards */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .event-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .event-content {
+            padding: 20px;
+        }
+
+        .event-content p {
+            hyphens: auto;
+            text-align: justify;
+        }
+
+        .event-content h3 {
+            text-transform: uppercase;
+        }
+
+        .event-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .event-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .event-content p {
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* Bootstrap Carousel Customization */
+        .carousel-item img {
+            height: 220px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .carousel-control-prev, .carousel-control-next {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .event-card:hover .carousel-control-prev,
+        .event-card:hover .carousel-control-next {
+            opacity: 1;
+        }
+
+        .carousel-indicators {
+            bottom: 10px;
+            margin-bottom: 0;
+        }
+
+        .carousel-indicators button {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin: 0 4px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: white;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--white);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                transition: var(--transition);
+                overflow-y: auto;
+                z-index: 999;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            .nav-links a {
+                padding: 12px 15px;
+                border-radius: 4px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .nav-links a:hover {
+                background: var(--light);
+            }
+            
+            .mobile-menu {
+                display: block;
+                z-index: 1000;
+            }
+            
+            .events-hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .carousel-control-prev, .carousel-control-next {
+                opacity: 1; /* Always show on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Container -->
+    <div id="header-container"></div>
+
+    <!-- Events Hero Section -->
+    <section class="events-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Institute Events</h1>
+                <p>Recent activities and events at SOS Technical Training Institute</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events">
+        <div class="container">
+            <div class="section-title">
+                <h2>Events Gallery</h2>
+                <p>Capturing memorable moments from our institute activities</p>
+            </div>
+
+            <div class="events-grid">
+
+                <!-- Event 42 March 04, 2025 -->
+                <div class="event-card">
+                    <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel1" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel1" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#carousel1" data-bs-slide-to="2"></button>
+                            <button type="button" data-bs-target="#carousel1" data-bs-slide-to="3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/m42025-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/m42025-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/m42025-3.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/m42025-4.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            March 04, 2025
+                        </div>
+                        <h3>Certificate Distribution Ceremony</h3>
+                        <p>Ms Ava A Cowasjee, business women and member of SOS TTI education committee distributed certificates to students on completion of NAVTTC (Recognition of Prior Learning) training program on March 04, 2025. Chairman SOSTTI Mr Sanaullah Qureshi was also present on the occasion</p>
+                    </div>
+                </div>
+
+                <!-- Event 41 January 31, 2025 -->
+                <div class="event-card">
+                    <div id="carousel2" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel2" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel2" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/j312025-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/j312025-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            January 31, 2025
+                        </div>
+                        <h3>Certificate Distribution Ceremony</h3>
+                        <p>16 girl students of SOS Technical Training Institute of "Prime Minister's Women Empowerment Package (shefixes)" received certificates on January 31, 2025 from Ms Gulmina Bilal, Chairperson, NAVTTC on completion of Mobile Phone Repairing course.</p>
+                    </div>
+                </div>
+
+                <!-- Event 40 January 4, 2025 -->
+                <div class="event-card">
+                    <div id="carousel3" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel3" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel3" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/j42025-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/j42025-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel3" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel3" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            January 4, 2025
+                        </div>
+                        <h3>Cyber Security Awareness Session</h3>
+                        <p>Cyber Security awareness session was conducted in SOSTTI on Saturday January 4, 2025. Mr Abdullah Cyber Security Instructor conducted the session. About 100 guest and students attended the session.</p>
+                    </div>
+                </div>
+
+                <!-- Event 39 December 18, 2024 -->
+                <div class="event-card">
+                    <div id="carousel39" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel39" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel39" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/18122024-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/18122024-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel39" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel39" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            December 18, 2024
+                        </div>
+                        <h3>Fire exercise</h3>
+                        <p>A fire safety exercise for staff and students was conducted at SOSTTI on December 18, 2024, under the supervision of Mr. Ghafoor Khan, Head of the Electrical Department. The session focused on fire prevention, emergency response, and the correct use of firefighting equipment. Staff and students actively participated, gaining valuable hands-on experience in managing fire emergencies safely and efficiently.</p>
+                    </div>
+                </div>
+
+                <!-- Event 38 December 15, 2024 -->
+                <div class="event-card">
+                    <div id="carousel38" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel38" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel38" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/15122024-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/15122024-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel38" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel38" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            December 15, 2024
+                        </div>
+                        <h3>AUTOMOBILE TRAINING</h3>
+                        <p>A one-day automobile training session was conducted by the Head of the Automobile Department at SOSTTI for 16 ambulance attendants from the Sindh Integrated Emergency Health Services (SIEHS), Health Department, Government of Sindh. The training focused on basic vehicle maintenance and troubleshooting to help attendants effectively manage ambulance operations during emergencies.</p>
+                    </div>
+                </div>
+
+                <!-- Event 37 December 13, 2024 -->
+                <div class="event-card">
+                    <div id="carousel37" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel37" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel37" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/13122024-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/13122024-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel37" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel37" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            December 13, 2024
+                        </div>
+                        <h3>PARENT TEACHER MEETING</h3>
+                        <p>Parent teacher meeting was conducted on December 13, 2024. About 50 parents attended the meeting in computer lab-I. Various issues related to training and discipline were discussed. Principal SOSTTI addressed the parents and answered their queries.</p>
+                    </div>
+                </div>
+
+                <!-- Event 36 November 11, 2024 -->
+                <div class="event-card">
+                    <div id="carousel36" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel36" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel36" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/11112024-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/11112024-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel36" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel36" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            November 11, 2024
+                        </div>
+                        <h3>INDUS HOSPITAL SET UP BLOOD DONATION CAMP</h3>
+                        <p>Indus Hospital organized a blood donation camp at SOSTTI on November 11, 2024. A total of 13 staff members and students participated by donating blood, contributing to a noble cause and supporting patients in need. The initiative reflected SOSTTI's commitment to promoting social responsibility and community welfare.</p>
+                    </div>
+                </div> 
+                <!-- Event 35 November 16, 2024 -->
+                <div class="event-card">
+                    <div id="carousel35" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel35" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel35" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/16112024-1.jpeg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/16112024-2.jpeg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel35" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel35" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            November 16, 2024
+                        </div>
+                        <h3>PRIME MINISTER'S WOMEN EMPOWERMENT PACKAGE #SheFixes</h3>
+                        <p>NAVTTC sponsored a Mobile Phone Repairing course for 20 women and girls at SOSTTI, held from August 17, 2024, to November 16, 2024. The training aimed to empower women by providing them with hands-on technical skills in mobile phone maintenance and repair, enabling them to pursue self-employment and career opportunities in the growing tech industry.</p>
+                    </div>
+                </div>
+
+                <!-- Event 34 January 20, 2025 -->
+                <div class="event-card">
+                    <div id="carousel34" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel34" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel34" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/20012025-1.jpeg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/20012025-2.jpeg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel34" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel34" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            January 20, 2025
+                        </div>
+                        <h3>SKILL MADRASAH YOUTH UNDER PMYSDP</h3>
+                        <p>SOSTTI successfully conducted a three-month Mobile Phone Repairing course under the NAVTTC-sponsored Prime Minister's Youth Skill Development Program for Madrasah youth. The training aimed to equip students with practical skills in mobile phone maintenance and repair, enabling them to pursue self-employment and career opportunities in the technical field. The program reflects the government's commitment to empowering youth through vocational education and skill development.</p>
+                    </div>
+                </div>
+
+                <!-- Event 33 January 19, 2025 -->
+                <div class="event-card">
+                    <div id="carousel32" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel32" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel32" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/19012025-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/19012025-2.jpeg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel32" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel32" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            January 19, 2025
+                        </div>
+                        <h3>Stipend Distribution Ceremony of Madrasa Students</h3>
+                        <p>A Stipend Distribution Ceremony for Madrasa students enrolled in the NAVTTC Mobile Phone Repairing course was held at SOSTTI. The event recognized the students dedication and successful participation in the program. Stipends were distributed to support and encourage their continued learning and skill development. The ceremony reflected SOSTTI's ongoing efforts to promote technical education and empower youth through practical training opportunities.</p>
+                    </div>
+                </div>   
+
+                <!-- Event 32 December 3, 2024 -->
+                <div class="event-card">
+                    <div id="carousel33" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel33" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel33" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/03122024-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/03122024-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel33" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel33" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            December 3, 2024
+                        </div>
+                        <h3>TOOL KIT DISTRIBUTION CEREMONY FOR TOP PERFORMERS</h3>
+                        <p>SOSTTI conducted a Tool Kit Distribution Ceremony on December 3, 2024 for technical students securing First position in final examinations. Mr Nazim F. Haji, Member Governing Board Infaq Foundation was the Chief Guest and distributed the tool kits to the students.</p>
+                    </div>
+                </div>
+
+                <!-- Event 31 October 2, 2024 -->
+                <div class="event-card">
+                    <div id="carousel31" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel31" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel31" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/02102024-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/02102024-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel31" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel31" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            October 2, 2024
+                        </div>
+                        <h3>Certificate Distribution Ceremony BBSHRRDB students</h3>
+                        <p>The Benazir Bhutto Shaheed Human Resource Research & Development Board (BBSHRRDB) Certificate Distribution Ceremony was held on October 2, 2024, at SOSTTI. The event celebrated the achievements of graduating students who successfully completed their training programs. Certificates were awarded in recognition of their hard work and dedication. The ceremony highlighted SOSTTI's continued commitment to skill development and empowering youth through quality technical education.</p>
+                    </div>
+                </div> 
+
+                <!-- Event 30  February 23, 2024 -->
+                <div class="event-card">
+                    <div id="carousel30" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel30" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel30" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/23022024-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/23022024-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel30" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel30" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            February 23, 2024
+                        </div>
+                        <h3>Career counseling session of navttc / bbshrrdb students</h3>
+                        <p>A career counseling session for NAVTTC and BBSHRRDB students was held on February 23, 2024, at SOSTTI. Mr. Mehmood Ali served as the guest speaker and shared valuable insights on career planning, skill development, and employment opportunities. The session helped students better understand industry expectations and prepare for their future careers.</p>
+                    </div>
+                </div> 
+
+                <!-- Event 29 October 17 to 19, 2023 -->
+                <div class="event-card">
+                    <div id="carousel29" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel29" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel29" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/17102023-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/17102023-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel29" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel29" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            October 17 to 19, 2023
+                        </div>
+                        <h3>atlas honda training for STUDENTS OF motorcycle</h3>
+                        <p>Atlas Honda conducted a training session for SOSTTI Motorcycle Workshop students from October 17 to 19, 2023. The program focused on practical skills in motorcycle maintenance and repair, providing students with valuable hands-on experience and industry exposure.</p>
+                    </div>
+                </div>
+
+                <!-- Event 28 October 10, 2023 -->
+                <div class="event-card">
+                    <div id="carousel28" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel28" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel28" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/10102023-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/10102023-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel28" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel28" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            October 10, 2023
+                        </div>
+                        <h3>SHELL SPONSORED ECO-FRIENDLY CAR - STUDENTS PROJECT</h3>
+                        <p>Shell Pakistan Limited conducted a review of the Eco-Friendly Car construction at SOSTTI on October 10, 2023. The team assessed the project’s progress, design, and technical development, expressing satisfaction with the work completed and encouraging continued efforts toward its successful completion.</p>
+                    </div>
+                </div>
+
+                <!-- Event 27 June 20, 2023 -->
+                <div class="event-card">
+                    <div id="carousel27" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel27" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel27" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/20062023-5.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/20062023-6.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel27" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel27" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            June 20, 2023
+                        </div>
+                        <h3>SOSTTI STUDENT OF THE YEAR</h3>
+                        <p>During the ceremony on June 20, 2023, the Principal of SOSTTI introduced Mr. Mukhtar Ahmed, an ex-student of the DIT course, who has successfully established his own e-marketing business and is now financially independent. He also teaches the PMYSDP Batch-IV Virtual Assistant for E-Commerce course at SOSTTI. The Chairman appreciated his hard work and achievements.</p>
+                    </div>
+                </div>
+
+                <!-- Event 26 May 23, 2023 -->
+                <div class="event-card">
+                    <div id="carousel26" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel26" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel26" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/23052023-1.png" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/23052023-2.png" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel26" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel26" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            May 23, 2023
+                        </div>
+                        <h3>FIRST GIRL STUDENT IN A TECHNICAL COURSE</h3>
+                        <p>Ms Humaima Faraz is the first girl student of High Tech Automotive Technician course Prime Minister's Youth Skill Development Program (PMYSDP) “Skill for All Program. She is BE Electronics from Bahria University. Her determination to learn about automotive engineering is appreciated and she has been encouraged by SOSTTI staff to complete the course.</p>
+                    </div>
+                </div> 
+
+                <!-- Event 25 June 20, 2023 -->
+                <div class="event-card">
+                    <div id="carousel25" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel25" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel25" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/20062023-3.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/20062023-4.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel25" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel25" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            June 20, 2023
+                        </div>
+                        <h3>NAVTTC/UNHCR SKILL DEVELOPMENT PROGRAM FOR PAKISTANI AND AFGHAN REFUGEE STUDENTS BATCH-II:</h3>
+                        <p>25 students of Motorcycle Mechanic and 25 students of General Electrician course, Afghani Refugees sponsored by NAVTTC/UNHCR were issued tool kits and stipends by Chief Guest Mr Sanaullah Qureshi, Chairman, SOSTTI in a ceremony held on June 20, 2023.</p>
+                    </div>
+                </div>
+
+                <!-- Event 24 June 20, 2023 -->
+                <div class="event-card">
+                    <div id="carousel24" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel24" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel24" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/20062023-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/20062023-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel24" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel24" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            June 20, 2023
+                        </div>
+                        <h3>SOSTTI/SHELL TAMEER PROGRAM</h3>
+                        <p>16 SOSTTI student entrepreneurs were provided tools and equipment under the SOSTTI / Shell Tameer Program in a ceremony held on June 20, 2023. Mr Sanaullah Qureshi, Chairman, SOSTTI was the Chief Guest and he visited the stalls set up by the students to display the tools & equipment. The Chairman took keen interest in the items provided and questioned the entrepreneurs on their business enterprise and how these items will benefit their business. The Chairman then handed over the tools & equipment to the entrepreneurs.</p>
+                    </div>
+                </div>
+
+                <!-- Event 23 May 4, 2023 -->
+                <div class="event-card">
+                    <div id="carousel23" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel23" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel23" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/04052023-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/04052023-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel23" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel23" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            May 4, 2023
+                        </div>
+                        <h3>MANUFACTURE OF AN ECO FRIENDLY CAR - A STUDENTS PROJECT</h3>
+                        <p>The fabrication of the Eco-Friendly Car, sponsored by Shell Pakistan Limited, has begun at SOSTTI. Students are actively involved in the design and assembly process under instructor supervision. The project is progressing well and reflects SOSTTI's commitment to innovation and sustainable technology.</p>
+                    </div>
+                </div>
+
+                <!-- Event 22 March 8, 2023 -->
+                <div class="event-card">
+                    <div id="carousel22" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel22" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel22" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/02032023-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/02032023-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel22" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel22" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            March 8, 2023
+                        </div>
+                        <h3>Mou Between Shell Pakistan Limited And SOSTTI to Manufacture Eco Marathon Car.</h3>
+                        <p>MOU between Shell Pakistan Limited and SOSTTI to Manufacture/Assemble an eco-friendly Car as student's project was Signed on March 8,2023. Mr Sanaullah Qureshi, Chairman, SOSTTI and Ms Nida Tanzed, Social Performance Manager, Shell Pakistan Limited offered their signatures on the MOU. The project is funded by Shell Pakistan Limited.</p>
+                    </div>
+                </div>    
+                          
+                <!-- Event 21 Feb 14, 2023 -->
+                <div class="event-card">
+                    <div id="carousel21" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel21" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel21" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/14022023-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/14022023-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel21" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel21" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            Feb 14, 2023
+                        </div>
+                        <h3>Visit from National Office</h3>
+                        <p>President-elect Mr. Shahid Hamid visited SOSTTI on February 14, 2023, accompanied by Executive Vice President Mrs. Mahnaz Farid and National Director Mrs. Saba Faisal. He was welcomed by Chairman SOS Sindh Mr. Javed Jabbar, Chairman SOSTTI Mr. Sanaullah Qureshi, and other senior members. The Principal briefed him on SOSTTI's history, activities, and training programs, followed by a tour of the workshops and computer labs. The visit concluded with a lunch for the guests and staff.</p>
+                    </div>
+                </div> 
+
+                <!-- Event 20 December 6, 2022 -->
+                <div class="event-card">
+                    <div id="carousel20" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel20" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel20" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/12062022-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/12062022-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel20" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel20" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            December 6, 2022
+                        </div>
+                        <h3>Certificate Distribution Ceremony</h3>
+                        <p>A Certificate Distribution Ceremony was held at the Institute on Tuesday, December 6, 2022, to award certificates to the graduating students of Phase-IV, Batch-X of the Benazir Bhutto Human Resource Research and Development Board (BBSHRRDB). The event was graced by Mr. Yasir Ashraf, Chief Executive Officer of Infaq Foundation, who attended as the Chief Guest and appreciated the students dedication and achievements.</p>
+                    </div>
+                </div> 
+
+                <!-- Event 19 November 24, 2022 -->
+                <div class="event-card">
+                    <div id="carousel19" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel19" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel19" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/24112022-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/24112022-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel19" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel19" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            November 24, 2022
+                        </div>
+                        <h3>NAVTTC/UNHCR SKILL DEVELOPMENT PROGRAM FOR AFGHAN REFUGEES BATCH-II, FINAL ASSESSMENT</h3>
+                        <p>Final assessment was conducted by NAVTTC assessors on November 24, 2022. Deputy Director, Mr Faqir Muhammad from NAVTTC Headquarters Islamabad monitored and conducted the final assessment along with Assistant Director Mr Bharat Kumar from the Regional Office, Karachi.</p>
+                    </div>
+                </div>
+
+                <!-- Event 18 November 26, 2022 -->
+                <div class="event-card">
+                    <div id="carousel18" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel18" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel18" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/18112022-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/18112022-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel18" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel18" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            November 26, 2022
+                        </div>
+                        <h3>fire exercise</h3>
+                        <p>SOSTTI students participated in a practical fire safety exercise held on November 26 and 28, 2022, under the supervision of Mr. Ghafoor Khan, Head of the Electrical Department. The activity was designed to enhance students awareness of fire prevention measures and emergency response procedures. During the exercise, students practiced the use of fire extinguishers, evacuation techniques, and safety protocols to effectively manage real-life fire situations. The training emphasized the importance of safety preparedness in technical environments.</p>
+                    </div>
+                </div>
+
+                <!-- Event 17 December 1, 2022 -->
+                <div class="event-card">
+                    <div id="carousel17" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel17" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel17" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/01122022-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/01122022-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel17" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel17" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            December 1, 2022
+                        </div>
+                        <h3>Shell Tameer</h3>
+                        <p>A SOSTTI/Shell Tameer workshop for student entrepreneurs was held on December 1, 2022, at SOSTTI. The session aimed to inspire and guide students in developing innovative business ideas and understanding the fundamentals of entrepreneurship. A total of 30 students participated enthusiastically, gaining valuable insights into startup development, financial planning, and business management. The workshop was part of SOSTTI's ongoing collaboration with Shell Pakistan to promote youth empowerment and self-employment opportunities.</p>
+                    </div>
+                </div>
+
+                <!-- Event 16 November 3, 2022 -->
+                <div class="event-card">
+                    <div id="carousel16" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel16" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel16" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/03112022-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/03112022-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel16" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel16" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            November 3, 2022
+                        </div>
+                        <h3>MOU SIGNING CEREMONY BETWEEN GUL AHMED TEXTILE MILLS (LTD) AND SOSTTI</h3>
+                        <p>An MOU signing ceremony between Gul Ahmed Textile Mills Limited and SOS Technical Training Institute (SOSTTI) was held on November 3, 2022, at SOSTTI. The event was attended by members of the SOS Children's Villages Sindh Managing Committee and representatives from Gul Ahmed. The MOU was signed by Mr. Syed Muhammad Azeem Azhar and Cdre (Retd) Khalid Wasim SI(M). It aims to create employment, internship, and collaboration opportunities for SOSTTI students. The ceremony concluded with a campus tour and lunch for the guests.</p>
+                    </div>
+                </div> 
+
+                <!-- Event 15 August 1, 2022 -->
+                <div class="event-card">
+                    <div id="carousel15" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel15" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel15" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/08022022-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/08022022-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel15" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel15" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            August 1, 2022
+                        </div>
+                        <h3>SOSTTI is collaborating with Shell Pakistan Limited</h3>
+                        <p>SOSTTI is collaborating with Shell Pakistan Limited to construct a Shell eco-friendly car. A meeting was held on August 1, 2022, at SOSTTI to discuss the project details. Shell Pakistan representatives approved the concept and advised submitting phased funding proposals. The first phase costing of Rs. 618,000 was sent on August 2, 2022, for approval. An MOU for the project is expected to be finalized soon at Shell House.</p>
+                    </div>
+                </div>
+
+                <!-- Event 14 August 08, 2022 -->
+                <div class="event-card">
+                    <div id="carousel14" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel14" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel14" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/08082022-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/08082022-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel14" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel14" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            August 08, 2022
+                        </div>
+                        <h3>Advance welding course internship completion certificate distribution</h3>
+                        <p>22 students of Advance Welding course completed 15 days internship in Automobile Corporation of Pakistan (bowser manufacturing factory) in Port Qasim. On completion of internship the students were awarded certificates by Cdre (Retd) Kamran Khan, CEO, Automobile Corporation of Pakistan. Principal, SOSTTI and staff were also present.</p>
+                    </div>
+                </div>
+
+                <!-- Event 13 July 21, 2022 -->
+                <div class="event-card">
+                    <div id="carousel13" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel13" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel13" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/21072022-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/21072022-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel13" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel13" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            July 21, 2022
+                        </div>
+                        <h3>An (MOC) for providing two weeks training / internship for SOSTTI Welding students</h3>
+                        <p>A Memorandum of Collaboration (MOC) was signed on July 21, 2022, between the Automobile Corporation of Pakistan and SOSTTI to provide two weeks of training/internship for SOSTTI Welding students. The MOC was signed by CEO Cdre (Retd) Kamran Khan and the Principal of SOSTTI, with Chairman Mr. Khayum Hussain also present on the occasion.</p>
+                    </div>
+                </div>
+
+                <!-- Event 12 August 1, 2022 -->
+                <div class="event-card">
+                    <div id="carousel12" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel12" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel12" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/08012022-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/08012022-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel12" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel12" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            August 1, 2022
+                        </div>
+                        <h3>Indus Hospital held a blood donation camp</h3>
+                        <p>Indus Hospital held a blood donation camp at SOSTTI on August 1, 2022. A large number of students volunteered to donate blood. Finally 17 student and staff were selected as per Indus Hospital criteria and donated blood.</p>
+                    </div>
+                </div>    
+                          
+                <!-- Event 11 January 4, 2025 -->
+                <div class="event-card">
+                    <div id="carousel11" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel11" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel11" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/19092022-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/19092022-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel11" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel11" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            January 4, 2025
+                        </div>
+                        <h3>CEO International Skills Mark visited SOSTTI</h3>
+                        <p>CEO International Skills Mark visited SOSTTI on September 19, 2022 and gave a presentation to Chairman, SOSTTI about International Certification for the students. The CEO has been asked to reduce training costs for SOSTTI students.</p>
+                    </div>
+                </div> 
+
+                <!-- Event 10 September 26, 2022 -->
+                <div class="event-card">
+                    <div id="carousel10" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel10" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel10" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/26092022-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/26092022-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel10" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel10" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            September 26, 2022
+                        </div>
+                        <h3>CSR PARCO visited SOsTTI</h3>
+                        <p>CSR PARCO, Ms Aiman Ali visited SOTTI on September 26, 2022 and briefed the Principal about the new funding policy of PARCO. SOSTTI has forwarded a proposal to PARCO accordingly.</p>
+                    </div>
+                </div> 
+
+                <!-- Event 9 June 22, 2022 -->
+                <div class="event-card">
+                    <div id="carousel9" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel9" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel9" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/22062022-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/22062022-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel9" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel9" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            June 22, 2022
+                        </div>
+                        <h3>MOU signed between SOSTTI and Shell Pakistan Limited</h3>
+                        <p>An MOU was signed between SOSTTI and Shell Pakistan Limited on June 22, 2022, to train 17 Shell employees in various technical and computer trades. The ceremony was attended by representatives from SOS Children's Villages Sindh, SOSTTI, and Shell Pakistan. This partnership marks a major achievement for SOSTTI, being selected by Shell from among several institutes in Karachi.</p>
+                    </div>
+                </div>
+
+                <!-- Event 8 June 23, 2022 -->
+                <div class="event-card">
+                    <div id="carousel8" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel8" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel8" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#carousel8" data-bs-slide-to="2"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/23062022-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/23062022-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/23062022-3.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel8" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel8" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            June 23, 2022
+                        </div>
+                        <h3>TRAINING WORKSHOP BY ATLAS HONDA (PVT)</h3>
+                        <p>Atlas Honda supports SOSTTI by providing motorcycles, tools, and equipment for training and regularly conducts sessions for Motorcycle Mechanic students. On June 23, 2022, Atlas Honda held a workshop for 25 Afghan Refugee students sponsored by NAVTTC at SOSTTI, which received enthusiastic participation.</p>
+                    </div>
+                </div>
+
+                <!-- Event 7 May 10, 2022 -->
+                <div class="event-card">
+                    <div id="carousel7" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel7" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel7" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/10052022-4.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/10052022-5.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel7" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel7" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            May 10, 2022
+                        </div>
+                        <h3>TOOLKIT DISTRIBUTION CEREMONY NAVTTC/UNHCR BATCH-III</h3>
+                        <p>Tool kits distribution ceremony for 36 students of NAVTTC/UNHCR Batch-lll Afghan Refugees was held on May 10, 2022. Director General NAVTTC (Sindh) Mrs Nabila Umer, Chairman SOSTTI Mr Sanaullah Qureshi and Chief Execuitive Infaq Foundation distrubuting tool kits to the students.</p>
+                    </div>
+                </div>
+
+                <!-- Event 6 May 10, 2022 -->
+                <div class="event-card">
+                    <div id="carousel6" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel6" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel6" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#carousel6" data-bs-slide-to="2"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/10052022-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/10052022-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/10052022-3.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel6" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel6" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            May 10, 2022
+                        </div>
+                        <h3>CERTIFICATE DISTRIBUTION CEREMONY HIGH-TECH BATCH-II</h3>
+                        <p>Mrs Nabeela Umer, Director General, NAVTTC Sindh was the Chief Guest and distributed tool kits and certificates to the students. Chairman, SOSTTI Mr Sanaullah Qureshi, Co Chairman, Mr Yacoonbali G. Zamindar and Admiral Syed A. Bagar were also present on the occasion, A large number of guests from various industries and students also attended the ceremony.</p>
+                    </div>
+                </div> 
+
+                <!-- Event 5 April 01, 2022 -->
+                <div class="event-card">
+                    <div id="carousel5" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel5" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel5" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/04012022-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/04012022-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel5" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel5" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            April 01, 2022
+                        </div>
+                        <h3>Liaison Systems Limited</h3>
+                        <p>Ms Naureen Anwar, VP-Special Projects of Systems Limited one of the largest software house in Pakistan visited SOSTTI with her team on April 1, 2022. A meeting was held with the chairman of SOSTTI Mr Sanaullah Qureshi. Systems Limited has agreed to provide internship/OJT to SOSTTI students of computer courses. They have also agreed to train SOSTTI Instructors.</p>
+                    </div>
+                </div>
+
+                <!-- Event 4 April 29, 2019 -->
+                <div class="event-card">
+                    <div id="carousel4" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel4" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carousel4" data-bs-slide-to="1"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/29042019-1.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/events/29042019-2.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel4" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel4" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            April 29, 2019
+                        </div>
+                        <h3>Blood Donation Camp</h3>
+                        <p>A blood donation camp was set up at SOSTTI by Indus Hospital on 29th april 2019. 47 students of SOSTTI volunteered to donate blood. After testing finally 25 students were allowed to donate blood.</p>
+                    </div>
+                </div>
+
+                <!-- Event 3 December 12, 2018 -->
+                <div class="event-card">
+                    <div id="carousel3" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel3" data-bs-slide-to="0" class="active"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/12122018.png" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel3" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel3" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            December 12, 2018
+                        </div>
+                        <h3>Provincial Skill Competition</h3>
+                        <p>Navttc provincial skill competition was held at aman tech on december 12, 2018. Governor Sindh Sr Imran Ismail was the chief guest.Technical institutes from all over Sindh participated. Mr.Tayyab of the industrial electrician course stood first in the competition. The student has received a cheque of rs.75, 000/- as prize and merit certificates from the Governor Sindh in a ceremony at aman tech.</p>
+                    </div>
+                </div>
+
+                <!-- Event 2 April 30, 2018 -->
+                <div class="event-card">
+                    <div id="carousel2" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel2" data-bs-slide-to="0" class="active"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/30042018.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            April 30, 2018
+                        </div>
+                        <h3>Provincial Skill Competition</h3>
+                        <p>Navttc provincial skill competition was held at aman tech and marriot hotel on april 30, 2018. Mr. Murad Ali Shah, chief minister of Sindh was the chief guest. Technical institutes from all over Sindh participated. Mr. Junaid of the industrial electrician course and Mr. Muhammad Ali of the automobile mechanic course both stood first in the competition. The students have received cheques of rs.75, 000/- as prize and merit certificates from the chief minister of sindh mr. Murad Ali Shah in a ceremony at marriot hotel.</p>
+                    </div>
+                </div>    
+                          
+                <!-- Event 1 October 23, 2017 -->
+                <div class="event-card">
+                    <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carousel1" data-bs-slide-to="0" class="active"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../images/events/23102017.jpg" class="d-block w-100" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            October 23, 2017
+                        </div>
+                        <h3>National Skill Competition</h3>
+                        <p>Mr. Shah hussain student of SOSTTI, automobile course made sos proud by obtaining first position in National Vocational and Technical Training commission (NAVTTC) sponsored “national skill competition” held on october 23, 2017 at Islamabad. He received a cheque of rs.100,000/- from the President of Pakistan on October 30, 2017 in an impressive ceremony held at the presidency in Islamabad. </p>
+                    </div>
+                </div> 
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+<!-- Component Loader -->
+<script src="../js/components.js"></script>
+<script src="../js/floating-buttons.js"></script>
+<script src="../js/chatbot.js"></script>
+    
+</body>
+</html>

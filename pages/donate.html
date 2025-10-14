@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate to SOSTTI - Empowering Through Education</title>
+        
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/myStyle.css">
+    
+    <style>
+        /* Only add donation-specific styles here */
+        .donation-hero {
+            background: linear-gradient(rgba(0, 174, 255, 0.9), rgba(1, 99, 144, 0.9));
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+        
+        .donation-hero h1 {
+            color: white;
+        }
+        
+        .impact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .option-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 5px solid var(--accent);
+            padding: 30px;
+            height: 100%;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .option-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .amount {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+        
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .method-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .method-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .method-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .method-card h3 i {
+            color: var(--accent);
+        }
+        
+        .highlight {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .cta-section {
+            background: linear-gradient(rgba(0, 174, 255, 0.9), rgba(1, 99, 144, 0.9));
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta-section h2 {
+            color: white;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .impact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .impact-image {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Container -->
+    <div id="header-container"></div>
+
+    <!-- Hero Section -->
+    <section class="donation-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Lives Through Education</h1>
+                <p>Your donation provides technical training to underprivileged youth, empowering them with skills for a brighter future.</p>
+                <div class="hero-btns">
+                    <a href="#donation-methods" class="btn">Donation Options</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="about" id="impact">
+        <div class="container">
+            <div class="impact-content">
+                <div class="about-text">
+                    <h2>Your Support Makes a Difference</h2>
+                    <p>We need your help and support to meet the short fall in the budget outlay on account of rising training cost/inflation.</p>
+                    <p>With a donation of <strong>PKR 30,000 (US $100)</strong>, you can sponsor vocational training of one student and change his/her life and the lives of their family members.</p>
+                    <p>Your contribution helps us provide quality technical education to deserving students who otherwise wouldn't have access to such opportunities. Together, we can break the cycle of poverty through skills development.</p>
+                </div>
+                <div class="about-image">
+                    <div style="background: var(--primary); height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-size: 1.2rem; border-radius: 8px;">
+                        <i class="fas fa-hands-helping" style="font-size: 5rem; margin-bottom: 20px;"></i>
+                        <p>Your donation changes lives</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Methods -->
+    <section class="about" id="donation-methods">
+        <div class="container">
+            <div class="section-title">
+                <h2>Donation Methods</h2>
+                <p>Choose the most convenient way to support our cause</p>
+            </div>
+            <div class="methods-grid">
+                <div class="method-card">
+                    <h3><i class="fas fa-university"></i> Bank Transfer in Pakistan</h3>
+                    <div class="method-details">
+                        <p>You can make a direct transfer of funds in Pakistan into our account:</p>
+                        <div class="highlight">
+                            <p><strong>Bank:</strong> Bank Al-Habib Limited</p>
+                            <p><strong>Account Title:</strong> SOS Children's Villages of Sindh</p>
+                            <p><strong>Account No:</strong> PK80-BAHL-1115-0081-000022-01-8</p>
+                            <p><strong>Swift Code:</strong> BAHLPKKA</p>
+                        </div>
+                        <p>Please mail your cheques in Pakistan payable to <strong>SOS Children's Villages of Sindh</strong>.</p>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <h3><i class="fas fa-flag-usa"></i> Donations from USA</h3>
+                    <div class="method-details">
+                        <p>Donations may be deposited in our SOS Washington DC Support Group:</p>
+                        <div class="highlight">
+                            <p><strong>Contact Persons:</strong></p>
+                            <p>Ms. Nivvi Tareen / Ms. Naila Nasir</p>
+                            <p>SOS Children's Villages Pakistan USA DC Chapter</p>
+                            <p>P.O. Box: 34604, Bethesda, Maryland 20817</p>
+                            <p><strong>Tel:</strong> +1(703)967-6199</p>
+                            <p><strong>Email:</strong> nivvita@gmail.com / naila.nasir1@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <h3><i class="fas fa-flag-canada"></i> Donations from Canada</h3>
+                    <div class="method-details">
+                        <p>Donations may be deposited in our SOS Support Group in Canada:</p>
+                        <div class="highlight">
+                            <p><strong>Contact Person:</strong></p>
+                            <p>Ms. Kianna Dewart (Program Officer)</p>
+                            <p>SOS Children's Villages Canada</p>
+                            <p>240-44 Byward Market Square, Ottawa, ON K1N 7A2</p>
+                            <p><strong>Tel:</strong> +1-800-767-5111</p>
+                            <p><strong>Email:</strong> k.dewart@soschildrensvillages.ca</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+        
+<!-- Component Loader -->
+<script src="../js/components.js"></script>
+<script src="../js/floating-buttons.js"></script>
+<script src="../js/chatbot.js"></script>
+</body>
+</html>

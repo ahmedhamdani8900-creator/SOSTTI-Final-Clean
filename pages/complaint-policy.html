@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Policy - SOSTTI</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/myStyle.css">
+    
+    <style>
+        .policy-header {
+            background: linear-gradient(rgba(0, 174, 255, 0.9), rgba(1, 99, 144, 0.9));
+            color: white;
+            padding: 100px 0 50px;
+            text-align: center;
+        }
+        
+        .policy-content {
+            padding: 50px 0;
+            background: var(--white);
+        }
+        
+        .policy-section {
+            margin-bottom: 40px;
+        }
+        
+        .policy-section h3 {
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .policy-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .policy-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .policy-list li:before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .complaint-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .complaint-table th,
+        .complaint-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .complaint-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .complaint-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .process-box {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .confidential-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Container -->
+    <div id="header-container"></div>
+
+    <!-- Policy Header -->
+    <section class="policy-header">
+        <div class="container">
+            <h1>Complaint Policy</h1>
+            <p>Fair, transparent, and confidential resolution of complaints</p>
+        </div>
+    </section>
+
+    <!-- Policy Content -->
+    <section class="policy-content">
+        <div class="container">
+            <div class="policy-section">
+                <h3>Policy Statement</h3>
+                <p>SOS Technical Training Institute is committed to providing a positive and respectful environment for all students, staff, and stakeholders. This complaint policy ensures that any concerns or complaints are addressed promptly, fairly, and confidentially, with the aim of resolving issues effectively and maintaining trust in the institution.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3>Principles of Complaint Handling</h3>
+                <ul class="policy-list">
+                    <li><strong>Accessibility:</strong> Easy access to complaint procedures</li>
+                    <li><strong>Fairness:</strong> Impartial and unbiased investigation</li>
+                    <li><strong>Confidentiality:</strong> Protection of complainant's identity</li>
+                    <li><strong>Timeliness:</strong> Prompt resolution of complaints</li>
+                    <li><strong>Transparency:</strong> Clear communication throughout the process</li>
+                    <li><strong>No Retaliation:</strong> Protection against victimization</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>Types of Complaints</h3>
+                <table class="complaint-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Examples</th>
+                            <th>Handling Authority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Academic</td>
+                            <td>Grading disputes, course content, teaching quality</td>
+                            <td>Academic Coordinator</td>
+                        </tr>
+                        <tr>
+                            <td>Administrative</td>
+                            <td>Admission process, fee issues, documentation</td>
+                            <td>Administrative Officer</td>
+                        </tr>
+                        <tr>
+                            <td>Facilities</td>
+                            <td>Equipment maintenance, classroom conditions</td>
+                            <td>Facility Manager</td>
+                        </tr>
+                        <tr>
+                            <td>Staff Conduct</td>
+                            <td>Professional behavior, discrimination, harassment</td>
+                            <td>Human Resources</td>
+                        </tr>
+                        <tr>
+                            <td>Student Conduct</td>
+                            <td>Bullying, misconduct, disciplinary issues</td>
+                            <td>Disciplinary Committee</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="policy-section">
+                <h3>Complaint Submission Process</h3>
+                <div class="process-box">
+                    <h4>Step 1: Informal Resolution</h4>
+                    <ul class="policy-list">
+                        <li>Discuss concern directly with relevant person</li>
+                        <li>Seek resolution through dialogue</li>
+                        <li>Document the discussion and outcome</li>
+                    </ul>
+                </div>
+                
+                <div class="process-box">
+                    <h4>Step 2: Formal Written Complaint</h4>
+                    <ul class="policy-list">
+                        <li>Submit complaint form available at office or website</li>
+                        <li>Provide detailed description with supporting evidence</li>
+                        <li>Include desired resolution</li>
+                        <li>Submit to relevant authority based on complaint type</li>
+                    </ul>
+                </div>
+                
+                <div class="process-box">
+                    <h4>Step 3: Investigation</h4>
+                    <ul class="policy-list">
+                        <li>Acknowledgment within 3 working days</li>
+                        <li>Thorough and impartial investigation</li>
+                        <li>Interviews with relevant parties</li>
+                        <li>Collection of evidence and documentation</li>
+                    </ul>
+                </div>
+                
+                <div class="process-box">
+                    <h4>Step 4: Resolution</h4>
+                    <ul class="policy-list">
+                        <li>Decision communicated within 15 working days</li>
+                        <li>Clear explanation of findings</li>
+                        <li>Implementation of corrective actions</li>
+                        <li>Follow-up to ensure resolution</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <h3>Confidentiality & Protection</h3>
+                <div class="confidential-box">
+                    <p><strong>Confidentiality Assurance:</strong> All complaints are handled with strict confidentiality. The identity of complainants is protected, and no retaliation against complainants will be tolerated.</p>
+                </div>
+                <ul class="policy-list">
+                    <li>Access to complaint information restricted to authorized personnel</li>
+                    <li>Anonymous complaints accepted but may limit investigation</li>
+                    <li>Complainant's identity not disclosed without consent</li>
+                    <li>Strict action against false or malicious complaints</li>
+                    <li>Protection from victimization guaranteed</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>Appeals Process</h3>
+                <ul class="policy-list">
+                    <li>Appeal available if dissatisfied with initial resolution</li>
+                    <li>Appeal must be submitted within 10 working days</li>
+                    <li>Appeal reviewed by higher authority or committee</li>
+                    <li>Final decision communicated within 10 working days</li>
+                    <li>External mediation available for unresolved issues</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>Timeframes</h3>
+                <table class="complaint-table">
+                    <thead>
+                        <tr>
+                            <th>Stage</th>
+                            <th>Maximum Timeframe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Acknowledgment</td>
+                            <td>3 working days</td>
+                        </tr>
+                        <tr>
+                            <td>Initial Resolution</td>
+                            <td>15 working days</td>
+                        </tr>
+                        <tr>
+                            <td>Appeal Decision</td>
+                            <td>10 working days</td>
+                        </tr>
+                        <tr>
+                            <td>Complex Cases</td>
+                            <td>30 working days (with updates)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="policy-section">
+                <h3>Record Keeping</h3>
+                <ul class="policy-list">
+                    <li>All complaints recorded in centralized database</li>
+                    <li>Records maintained for minimum 3 years</li>
+                    <li>Statistical analysis for trend identification</li>
+                    <li>Annual reporting to management committee</li>
+                    <li>Continuous improvement based on feedback</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>External Resources</h3>
+                <p>For complaints that cannot be resolved internally, stakeholders may contact:</p>
+                <ul class="policy-list">
+                    <li><strong>NAVTTC Helpdesk:</strong> 0800-88888</li>
+                    <li><strong>Higher Education Commission:</strong> 111-119-432</li>
+                    <li><strong>Ombudsman Office:</strong> As per regional jurisdiction</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>Policy Review</h3>
+                <p>This complaint policy is reviewed annually by the Quality Assurance Committee to ensure effectiveness and continuous improvement in complaint handling procedures.</p>
+                <p><strong>Last Reviewed:</strong> January 2025</p>
+                <p><strong>Next Review:</strong> January 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+        
+<!-- Component Loader -->
+<script src="../js/components.js"></script>
+<script src="../js/floating-buttons.js"></script>
+<script src="../js/chatbot.js"></script>
+</body>
+</html>

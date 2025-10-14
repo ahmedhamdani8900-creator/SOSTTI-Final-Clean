@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procurement Policy - SOSTTI</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/myStyle.css">
+    
+    <style>
+        .policy-header {
+            background: linear-gradient(rgba(0, 174, 255, 0.9), rgba(1, 99, 144, 0.9));
+            color: white;
+            padding: 100px 0 50px;
+            text-align: center;
+        }
+        
+        .policy-content {
+            padding: 50px 0;
+            background: var(--white);
+        }
+        
+        .policy-section {
+            margin-bottom: 40px;
+        }
+        
+        .policy-section h3 {
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .policy-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .policy-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .policy-list li:before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .procurement-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .procurement-table th,
+        .procurement-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .procurement-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .procurement-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .threshold-box {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Container -->
+    <div id="header-container"></div>
+
+    <!-- Policy Header -->
+    <section class="policy-header">
+        <div class="container">
+            <h1>Procurement Policy</h1>
+            <p>Transparent, efficient, and cost-effective acquisition of goods and services</p>
+        </div>
+    </section>
+
+    <!-- Policy Content -->
+    <section class="policy-content">
+        <div class="container">
+            <div class="policy-section">
+                <h3>Policy Statement</h3>
+                <p>SOS Technical Training Institute is committed to procuring goods and services in a manner that ensures transparency, fairness, competition, and value for money. This policy establishes the framework for all procurement activities to support the institute's educational mission while maintaining fiscal responsibility.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3>Procurement Principles</h3>
+                <ul class="policy-list">
+                    <li><strong>Transparency:</strong> All procurement processes are open and documented</li>
+                    <li><strong>Fairness:</strong> Equal opportunity for all qualified suppliers</li>
+                    <li><strong>Competition:</strong> Competitive bidding for better value</li>
+                    <li><strong>Accountability:</strong> Clear responsibility for procurement decisions</li>
+                    <li><strong>Value for Money:</strong> Optimal balance of cost, quality, and sustainability</li>
+                    <li><strong>Ethical Standards:</strong> Adherence to highest ethical standards</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>Procurement Thresholds & Methods</h3>
+                <div class="threshold-box">
+                    <h4>Low Value Purchases (Up to Rs. 25,000)</h4>
+                    <ul class="policy-list">
+                        <li>Direct purchase from registered vendors</li>
+                        <li>Minimum two verbal quotations</li>
+                        <li>Department head approval required</li>
+                    </ul>
+                </div>
+                
+                <div class="threshold-box">
+                    <h4>Medium Value Purchases (Rs. 25,001 - Rs. 200,000)</h4>
+                    <ul class="policy-list">
+                        <li>Written quotations from at least three suppliers</li>
+                        <li>Purchase committee evaluation</li>
+                        <li>Director approval required</li>
+                    </ul>
+                </div>
+                
+                <div class="threshold-box">
+                    <h4>High Value Purchases (Above Rs. 200,000)</h4>
+                    <ul class="policy-list">
+                        <li>Formal tender process</li>
+                        <li>Public advertisement in newspapers</li>
+                        <li>Tender committee evaluation</li>
+                        <li>Managing committee approval required</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <h3>Procurement Process</h3>
+                <table class="procurement-table">
+                    <thead>
+                        <tr>
+                            <th>Stage</th>
+                            <th>Activities</th>
+                            <th>Timeline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Needs Assessment</td>
+                            <td>Requirement identification and budget approval</td>
+                            <td>As needed</td>
+                        </tr>
+                        <tr>
+                            <td>Vendor Selection</td>
+                            <td>Quotation/tender process and evaluation</td>
+                            <td>2-4 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Purchase Order</td>
+                            <td>Contract preparation and approval</td>
+                            <td>1 week</td>
+                        </tr>
+                        <tr>
+                            <td>Delivery & Inspection</td>
+                            <td>Goods receipt and quality verification</td>
+                            <td>Upon delivery</td>
+                        </tr>
+                        <tr>
+                            <td>Payment Processing</td>
+                            <td>Document verification and payment</td>
+                            <td>2-3 weeks</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="policy-section">
+                <h3>Vendor Management</h3>
+                <ul class="policy-list">
+                    <li>Maintain registered vendor database</li>
+                    <li>Regular performance evaluation of vendors</li>
+                    <li>Blacklisting procedure for non-performing suppliers</li>
+                    <li>Encourage local and small business participation</li>
+                    <li>Preference for environmentally responsible suppliers</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>Emergency Procurement</h3>
+                <ul class="policy-list">
+                    <li>Emergency situations allow expedited procurement</li>
+                    <li>Post-facto approval from appropriate authority</li>
+                    <li>Documentation maintained for audit purposes</li>
+                    <li>Limited to genuine emergency situations only</li>
+                    <li>Report to procurement committee for review</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>Conflict of Interest</h3>
+                <ul class="policy-list">
+                    <li>Staff must declare any conflict of interest</li>
+                    <li>Exclusion from procurement decisions where conflict exists</li>
+                    <li>No acceptance of gifts or favors from suppliers</li>
+                    <li>Annual conflict of interest declarations</li>
+                    <li>Strict disciplinary action for policy violations</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>Documentation & Record Keeping</h3>
+                <ul class="policy-list">
+                    <li>Complete procurement files maintained for 7 years</li>
+                    <li>Digital records backed up regularly</li>
+                    <li>Access restricted to authorized personnel</li>
+                    <li>Regular internal audits of procurement processes</li>
+                    <li>Transparent reporting to stakeholders</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>Sustainability Considerations</h3>
+                <ul class="policy-list">
+                    <li>Preference for environmentally friendly products</li>
+                    <li>Energy-efficient equipment prioritized</li>
+                    <li>Local suppliers encouraged to reduce carbon footprint</li>
+                    <li>Recyclable and reusable materials preferred</li>
+                    <li>Sustainability criteria in tender evaluation</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>Policy Review</h3>
+                <p>This procurement policy is reviewed annually by the Finance and Procurement Committee to ensure compliance with best practices and regulatory requirements.</p>
+                <p><strong>Last Reviewed:</strong> January 2025</p>
+                <p><strong>Next Review:</strong> January 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+        
+<!-- Component Loader -->
+<script src="../js/components.js"></script>
+<script src="../js/floating-buttons.js"></script>
+<script src="../js/chatbot.js"></script>
+</body>
+</html>

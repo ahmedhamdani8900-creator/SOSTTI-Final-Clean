@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discipline Policy - SOSTTI</title>
+        
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/myStyle.css">
+    
+    <style>
+        .policy-header {
+            background: linear-gradient(rgba(0, 174, 255, 0.9), rgba(1, 99, 144, 0.9));
+            color: white;
+            padding: 100px 0 50px;
+            text-align: center;
+        }
+        
+        .policy-content {
+            padding: 50px 0;
+            background: var(--white);
+        }
+        
+        .policy-section {
+            margin-bottom: 40px;
+        }
+        
+        .policy-section h3 {
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .policy-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .policy-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .policy-list li:before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .discipline-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .discipline-table th,
+        .discipline-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .discipline-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .discipline-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .offense-category {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .zero-tolerance-box {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Container -->
+    <div id="header-container"></div>
+
+    <!-- Policy Header -->
+    <section class="policy-header">
+        <div class="container">
+            <h1>Discipline Policy</h1>
+            <p>Maintaining a respectful, safe, and productive learning environment</p>
+        </div>
+    </section>
+
+    <!-- Policy Content -->
+    <section class="policy-content">
+        <div class="container">
+            <div class="policy-section">
+                <h3>Policy Statement</h3>
+                <p>SOS Technical Training Institute is committed to maintaining a disciplined environment that promotes respect, safety, and academic excellence. This discipline policy establishes clear expectations for behavior and outlines fair, consistent procedures for addressing disciplinary issues while focusing on corrective rather than punitive measures where appropriate.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3>Code of Conduct</h3>
+                <div class="offense-category">
+                    <h4>Expected Behavior</h4>
+                    <ul class="policy-list">
+                        <li>Respect for all individuals regardless of background</li>
+                        <li>Punctuality and regular attendance</li>
+                        <li>Proper use of institute property and facilities</li>
+                        <li>Academic honesty and integrity</li>
+                        <li>Appropriate language and professional demeanor</li>
+                        <li>Compliance with safety regulations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <h3>Categories of Offenses</h3>
+                <table class="discipline-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Examples</th>
+                            <th>Typical Consequences</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Minor Offenses</td>
+                            <td>Late arrival, improper uniform, class disruption</td>
+                            <td>Verbal warning, written warning, parent notification</td>
+                        </tr>
+                        <tr>
+                            <td>Moderate Offenses</td>
+                            <td>Repeated minor offenses, unauthorized absence, disrespect</td>
+                            <td>Written warning, detention, community service</td>
+                        </tr>
+                        <tr>
+                            <td>Serious Offenses</td>
+                            <td>Fighting, theft, vandalism, academic dishonesty</td>
+                            <td>Suspension, fine, behavioral contract</td>
+                        </tr>
+                        <tr>
+                            <td>Gross Misconduct</td>
+                            <td>Violence, harassment, drug/alcohol possession</td>
+                            <td>Expulsion, police involvement, permanent record</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="zero-tolerance-box">
+                <h4>Zero Tolerance Offenses</h4>
+                <p>The institute maintains a zero-tolerance policy for the following offenses, which will result in immediate suspension and potential expulsion:</p>
+                <ul class="policy-list">
+                    <li>Physical violence or threats of violence</li>
+                    <li>Possession of weapons or dangerous items</li>
+                    <li>Sexual harassment or assault</li>
+                    <li>Drug or alcohol possession or use on campus</li>
+                    <li>Gross insubordination or willful destruction of property</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>Disciplinary Procedures</h3>
+                <div class="offense-category">
+                    <h4>Step 1: Incident Reporting</h4>
+                    <ul class="policy-list">
+                        <li>Immediate reporting of disciplinary incidents</li>
+                        <li>Written incident report by staff member</li>
+                        <li>Preliminary fact-finding by department head</li>
+                        <li>Interim measures if safety concerns exist</li>
+                    </ul>
+                </div>
+                
+                <div class="offense-category">
+                    <h4>Step 2: Investigation</h4>
+                    <ul class="policy-list">
+                        <li>Fair and impartial investigation</li>
+                        <li>Opportunity for student/staff to present their version</li>
+                        <li>Collection of evidence and witness statements</li>
+                        <li>Timely completion of investigation</li>
+                    </ul>
+                </div>
+                
+                <div class="offense-category">
+                    <h4>Step 3: Decision & Action</h4>
+                    <ul class="policy-list">
+                        <li>Appropriate disciplinary action based on offense severity</li>
+                        <li>Written notification of decision</li>
+                        <li>Clear explanation of consequences</li>
+                        <li>Implementation of corrective measures</li>
+                    </ul>
+                </div>
+                
+                <div class="offense-category">
+                    <h4>Step 4: Follow-up & Monitoring</h4>
+                    <ul class="policy-list">
+                        <li>Regular monitoring of behavioral improvement</li>
+                        <li>Support services for rehabilitation</li>
+                        <li>Documentation of progress</li>
+                        <li>Closure of case upon satisfactory improvement</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <h3>Disciplinary Actions</h3>
+                <table class="discipline-table">
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Description</th>
+                            <th>Applicable For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Verbal Warning</td>
+                            <td>Informal discussion about behavior</td>
+                            <td>First-time minor offenses</td>
+                        </tr>
+                        <tr>
+                            <td>Written Warning</td>
+                            <td>Formal written record of offense</td>
+                            <td>Repeated minor or first moderate offenses</td>
+                        </tr>
+                        <tr>
+                            <td>Detention</td>
+                            <td>Additional time spent on campus</td>
+                            <td>Moderate behavioral issues</td>
+                        </tr>
+                        <tr>
+                            <td>Community Service</td>
+                            <td>Service to institute community</td>
+                            <td>Moderate offenses requiring restitution</td>
+                        </tr>
+                        <tr>
+                            <td>Suspension</td>
+                            <td>Temporary removal from institute</td>
+                            <td>Serious or repeated offenses</td>
+                        </tr>
+                        <tr>
+                            <td>Expulsion</td>
+                            <td>Permanent removal from institute</td>
+                            <td>Gross misconduct or zero-tolerance offenses</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="policy-section">
+                <h3>Appeals Process</h3>
+                <ul class="policy-list">
+                    <li>Right to appeal disciplinary decisions</li>
+                    <li>Written appeal submitted within 5 working days</li>
+                    <li>Appeals committee comprising senior staff members</li>
+                    <li>Fair hearing with representation allowed</li>
+                    <li>Final decision communicated within 10 working days</li>
+                    <li>External mediation available for expulsion cases</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>Restorative Practices</h3>
+                <p>The institute emphasizes restorative approaches to discipline that focus on repairing harm and rebuilding relationships:</p>
+                <ul class="policy-list">
+                    <li>Mediation sessions between affected parties</li>
+                    <li>Restitution for damages or losses</li>
+                    <li>Behavioral contracts with clear improvement goals</li>
+                    <li>Counseling and support services</li>
+                    <li>Mentorship programs for at-risk students</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>Staff Disciplinary Procedures</h3>
+                <ul class="policy-list">
+                    <li>Separate disciplinary procedures for staff members</li>
+                    <li>Progressive discipline approach</li>
+                    <li>HR department involvement in staff disciplinary matters</li>
+                    <li>Right to representation during disciplinary proceedings</li>
+                    <li>Compliance with labor laws and employment contracts</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>Record Keeping</h3>
+                <ul class="policy-list">
+                    <li>Confidential disciplinary records maintained</li>
+                    <li>Records retained for specified periods based on offense severity</li>
+                    <li>Access restricted to authorized personnel</li>
+                    <li>Expungement of minor offense records after improvement period</li>
+                    <li>Statistical analysis for pattern identification</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>Policy Review</h3>
+                <p>This discipline policy is reviewed annually by the Disciplinary Committee to ensure it remains effective, fair, and aligned with best practices in educational discipline.</p>
+                <p><strong>Last Reviewed:</strong> January 2025</p>
+                <p><strong>Next Review:</strong> January 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+        
+<!-- Component Loader -->
+<script src="../js/components.js"></script>
+<script src="../js/floating-buttons.js"></script>
+<script src="../js/chatbot.js"></script>
+</body>
+</html>

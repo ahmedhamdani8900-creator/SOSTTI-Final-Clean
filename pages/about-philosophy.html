@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOSTTI's Philosophy - SOS Technical Training Institute</title>
+        
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/myStyle.css">
+<style>
+/* ===== MOBILE RESPONSIVE CONTENT FIXES ===== */
+@media (max-width: 768px) {
+  /* Hero Section */
+  .hero {
+    padding: 120px 0 50px !important;
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem !important;
+    line-height: 1.3 !important;
+    padding: 0 10px !important;
+  }
+  
+  .hero p {
+    font-size: 1rem !important;
+    padding: 0 15px !important;
+    line-height: 1.5 !important;
+  }
+  
+  /* About Section */
+  .about {
+    padding: 40px 0 !important;
+  }
+  
+  .about-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+  
+  .about-text {
+    order: 2 !important;
+  }
+  
+  .about-image {
+    order: 1 !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .about-image div {
+    height: 300px !important;
+    padding: 20px !important;
+  }
+  
+  .about-image i {
+    font-size: 3rem !important;
+  }
+  
+  .about-image h3 {
+    font-size: 1.3rem !important;
+  }
+  
+  .about-image p {
+    font-size: 1rem !important;
+  }
+  
+  .about-text h2 {
+    font-size: 1.6rem !important;
+    text-align: center !important;
+  }
+  
+  .about-text h3 {
+    font-size: 1.3rem !important;
+    margin-top: 25px !important;
+  }
+  
+  .about-text p {
+    font-size: 0.95rem !important;
+    text-align: left !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* Program Features List - Fix Overflow */
+  .program-features {
+    margin: 20px 0 !important;
+    padding: 0 10px !important;
+  }
+  
+  .program-features li {
+    margin-bottom: 15px !important;
+    padding-left: 25px !important;
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    text-align: left !important;
+  }
+  
+  .program-features strong {
+    display: block !important;
+    margin-bottom: 5px !important;
+    color: var(--primary-dark) !important;
+  }
+  
+  /* Container adjustments */
+  .container {
+    width: 100% !important;
+    padding: 0 15px !important;
+    max-width: 100% !important;
+  }
+  
+  /* Footer fixes */
+  footer {
+    padding: 40px 0 20px !important;
+  }
+  
+  .footer-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+    text-align: center !important;
+  }
+  
+  .footer-column {
+    padding: 0 10px !important;
+  }
+  
+  .footer-column h3 {
+    font-size: 1.2rem !important;
+  }
+  
+  .footer-column p {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  /* Contact info fixes */
+  .contact-info {
+    margin: 20px 0 !important;
+  }
+  
+  .contact-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin-bottom: 20px !important;
+    gap: 10px !important;
+  }
+  
+  .contact-item p {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Fix the specific address overflow */
+  .contact-item:first-child p {
+    max-width: 260px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Map iframe */
+  .footer-column iframe {
+    height: 200px !important;
+    border-radius: 8px !important;
+  }
+  
+  /* Social links */
+  .social-links {
+    justify-content: center !important;
+    margin-top: 20px !important;
+  }
+  
+  /* Copyright */
+  .copyright {
+    text-align: center !important;
+    margin-top: 30px !important;
+    padding-top: 20px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+  
+  .copyright p {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Extra Small Devices (Phones) */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.6rem !important;
+  }
+  
+  .hero p {
+    font-size: 0.9rem !important;
+  }
+  
+  .about-text h2 {
+    font-size: 1.4rem !important;
+  }
+  
+  .about-text h3 {
+    font-size: 1.2rem !important;
+  }
+  
+  .about-text p {
+    font-size: 0.9rem !important;
+  }
+  
+  .program-features li {
+    font-size: 0.9rem !important;
+    padding-left: 20px !important;
+  }
+  
+  .about-image div {
+    height: 250px !important;
+    padding: 15px !important;
+  }
+  
+  .contact-item p {
+    max-width: 240px !important;
+    font-size: 0.85rem !important;
+  }
+  
+  .footer-column p {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Tablet Devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    width: 95% !important;
+    padding: 0 20px !important;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem !important;
+  }
+  
+  .about-content {
+    gap: 40px !important;
+  }
+  
+  .program-features li {
+    font-size: 1rem !important;
+  }
+}
+
+/* Prevent horizontal scrolling globally */
+html, body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* Hyphenation support for better text wrapping */
+.about-text p,
+.program-features li,
+.footer-column p,
+.contact-item p {
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+}
+</style>
+</head>
+<body>
+    <!-- Header Container -->
+    <div id="header-container"></div>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>SOSTTI's Philosophy</h1>
+                <p>Our guiding principles and educational philosophy</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Educational Philosophy</h2>
+                    <p>At SOS Technical Training Institute, we believe in empowering individuals through practical, skill-based education that transforms lives and communities.</p>
+                    
+                    <h3>Core Principles</h3>
+                    <ul class="program-features">
+                        <li><strong>Student-Centered Learning:</strong> Every student is unique with individual potential</li>
+                        <li><strong>Practical Excellence:</strong> Hands-on training with industry-relevant skills</li>
+                        <li><strong>Community Focus:</strong> Education that serves and uplifts communities</li>
+                        <li><strong>Ethical Foundation:</strong> Building character along with technical competence</li>
+                        <li><strong>Lifelong Learning:</strong> Fostering continuous growth and adaptation</li>
+                    </ul>
+
+                    <h3>Our Approach</h3>
+                    <p>We combine theoretical knowledge with extensive practical training, ensuring our graduates are job-ready from day one. Our curriculum is regularly updated to meet industry demands and technological advancements.</p>
+                </div>
+                <div class="about-image">
+                    <div style="background: var(--primary); height: 500px; display: flex; align-items: center; justify-content: center; color: white; border-radius: 8px;">
+                        <div style="text-align: center; padding: 20px;">
+                            <i class="fas fa-graduation-cap" style="font-size: 4rem; margin-bottom: 20px;"></i>
+                            <h3>Education for Empowerment</h3>
+                            <p>Transforming lives through technical education</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+        
+<!-- Component Loader -->
+<script src="../js/components.js"></script>
+<script src="../js/floating-buttons.js"></script>
+<script src="../js/chatbot.js"></script>
+</body>
+</html>

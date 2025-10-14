@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library - SOSTTI</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/myStyle.css">
+    
+    <style>
+        :root {
+            --library-primary: #2c3e50;
+            --library-secondary: #3498db;
+            --library-accent: #e74c3c;
+            --library-light: #ecf0f1;
+            --library-dark: #34495e;
+        }
+        
+        .library-hero {
+            background: linear-gradient(135deg, var(--library-primary), var(--library-dark));
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .library-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        .library-content {
+            padding: 60px 0;
+            background: var(--white);
+        }
+        
+        .search-section {
+            background: var(--library-light);
+            padding: 40px 0;
+            margin-bottom: 50px;
+        }
+        
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 20px 60px 20px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 15px 40px rgba(52, 152, 219, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--library-secondary);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            background: var(--library-primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .quick-filters {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 12px 25px;
+            background: white;
+            border: 2px solid var(--library-secondary);
+            color: var(--library-secondary);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--library-secondary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .resource-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 8px 15px;
+            background: var(--library-accent);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .resource-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--library-secondary), var(--library-primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .resource-content {
+            padding: 25px;
+        }
+        
+        .resource-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .resource-type {
+            display: inline-block;
+            padding: 5px 12px;
+            background: var(--library-light);
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        .resource-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .action-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: var(--library-secondary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--library-primary);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--library-secondary);
+            color: var(--library-secondary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--library-secondary);
+            color: white;
+        }
+        
+        .categories-section {
+            margin: 60px 0;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .category-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--library-secondary), var(--library-primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, var(--library-primary), var(--library-dark));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            padding: 30px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--library-accent);
+        }
+        
+        .featured-section {
+            margin: 60px 0;
+        }
+        
+        .featured-slider {
+            position: relative;
+            margin-top: 40px;
+        }
+        
+        .featured-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .featured-content {
+            padding: 30px;
+        }
+        
+        .library-cta {
+            background: linear-gradient(135deg, var(--library-secondary), var(--library-primary));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+        
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+        
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--library-secondary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+            background: var(--library-primary);
+        }
+        
+        @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .quick-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 200px;
+                text-align: center;
+            }
+            
+            .floating-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Container -->
+    <div id="header-container"></div>
+
+    <!-- Library Hero Section -->
+    <section class="library-hero">
+        <div class="container">
+            <h1 class="fade-in">SOSTTI Digital Library</h1>
+            <p class="lead fade-in">Access all of resources, e-books, and learning materials anytime, anywhere</p>
+            <div class="hero-badges fade-in">
+                <!-- <span class="badge"><i class="fas fa-book"></i> 500+ Resources</span> -->
+                <span class="badge"><i class="fas fa-users"></i> 24/7 Access</span>
+                <span class="badge"><i class="fas fa-download"></i> Free Downloads</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Library Content -->
+    <section class="library-content">
+        <div class="container">
+            <!-- Featured Resources -->
+            <div class="featured-section">
+                <h2>Resources</h2>
+                <p class="section-subtitle">Handpicked resources for your learning journey</p>
+                
+                <div class="resources-grid">
+                    <!-- Resource 1 -->
+                    <div class="resource-card fade-in">
+                        <!-- <div class="resource-badge">New</div> -->
+                        <div class="resource-image">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="resource-content">
+                            <!-- <div class="resource-meta">
+                                <span class="resource-type">E-book</span>
+                                <span><i class="fas fa-download"></i> 1.2K</span>
+                            </div> -->
+                            <h3>Complete Web Development Guide 2025</h3>
+                            <p>Comprehensive guide covering HTML5, CSS3, JavaScript, and modern frameworks.</p>
+                            <div class="resource-actions">
+                                <!-- <a href="#" class="action-btn btn-primary">
+                                    <i class="fas fa-book-open"></i> Read
+                                </a> -->
+                                <a href="#" class="action-btn btn-outline">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resource 2 -->
+                    <div class="resource-card fade-in">
+                        <!-- <div class="resource-badge">Popular</div> -->
+                        <div class="resource-image">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="resource-content">
+                            <!-- <div class="resource-meta">
+                                <span class="resource-type">Video Course</span>
+                                <span><i class="fas fa-eye"></i> 3.4K</span>
+                            </div> -->
+                            <h3>Database Management Systems</h3>
+                            <p>Complete video series on SQL, database design, and administration.</p>
+                            <div class="resource-actions">
+                                <!-- <a href="#" class="action-btn btn-primary">
+                                    <i class="fas fa-play"></i> Watch
+                                </a> -->
+                                <a href="#" class="action-btn btn-outline">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resource 3 -->
+                    <div class="resource-card fade-in">
+                        <div class="resource-image">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="resource-content">
+                            <!-- <div class="resource-meta">
+                                <span class="resource-type">Research Paper</span>
+                                <span><i class="fas fa-download"></i> 856</span>
+                            </div> -->
+                            <h3>Advanced Mechanical Engineering</h3>
+                            <p>Latest research in mechanical systems and automation technologies.</p>
+                            <div class="resource-actions">
+                                <!-- <a href="#" class="action-btn btn-primary">
+                                    <i class="fas fa-book-open"></i> Read
+                                </a> -->
+                                <a href="#" class="action-btn btn-outline">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resources-grid">
+                    <!-- Resource 4 -->
+                    <div class="resource-card fade-in">
+                        <!-- <div class="resource-badge">New</div> -->
+                        <div class="resource-image">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="resource-content">
+                            <!-- <div class="resource-meta">
+                                <span class="resource-type">E-book</span>
+                                <span><i class="fas fa-download"></i> 1.2K</span>
+                            </div> -->
+                            <h3>Complete Web Development Guide 2025</h3>
+                            <p>Comprehensive guide covering HTML5, CSS3, JavaScript, and modern frameworks.</p>
+                            <div class="resource-actions">
+                                <!-- <a href="#" class="action-btn btn-primary">
+                                    <i class="fas fa-book-open"></i> Read
+                                </a> -->
+                                <a href="#" class="action-btn btn-outline">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resource 5 -->
+                    <div class="resource-card fade-in">
+                        <!-- <div class="resource-badge">Popular</div> -->
+                        <div class="resource-image">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="resource-content">
+                            <!-- <div class="resource-meta">
+                                <span class="resource-type">Video Course</span>
+                                <span><i class="fas fa-eye"></i> 3.4K</span>
+                            </div> -->
+                            <h3>Database Management Systems</h3>
+                            <p>Complete video series on SQL, database design, and administration.</p>
+                            <div class="resource-actions">
+                                <!-- <a href="#" class="action-btn btn-primary">
+                                    <i class="fas fa-play"></i> Watch
+                                </a> -->
+                                <a href="#" class="action-btn btn-outline">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resource 6 -->
+                    <div class="resource-card fade-in">
+                        <div class="resource-image">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="resource-content">
+                            <!-- <div class="resource-meta">
+                                <span class="resource-type">Research Paper</span>
+                                <span><i class="fas fa-download"></i> 856</span>
+                            </div> -->
+                            <h3>Advanced Mechanical Engineering</h3>
+                            <p>Latest research in mechanical systems and automation technologies.</p>
+                            <div class="resource-actions">
+                                <!-- <a href="#" class="action-btn btn-primary">
+                                    <i class="fas fa-book-open"></i> Read
+                                </a> -->
+                                <a href="#" class="action-btn btn-outline">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+        
+<!-- Component Loader -->
+<script src="../js/components.js"></script>
+<script src="../js/floating-buttons.js"></script>
+<script src="../js/chatbot.js"></script>
+</body>
+</html>
