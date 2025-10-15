@@ -353,7 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loader.innerHTML = `
         <div style="text-align:center">
             <img src="${imagePath}" alt="SOSTTI Logo" id="loader-logo">
-            ${isInCoursesFolder ? '<p style="margin-top: 20px; color: #333; font-family: Arial, sans-serif;">Loading Course Content...</p>' : ''}
+            <p style="margin-top: 20px; color: #333; font-family: Arial, sans-serif;">Loading ...</p>
         </div>
     `;
     document.body.appendChild(loader);
