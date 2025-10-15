@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +8,15 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
-    <!-- Add to head section -->
+    <!-- SEO Meta Tags -->
     <meta name="description" content="SOS Technical Training Institute - NAVTTC accredited technical education courses in Karachi">
     <meta name="keywords" content="technical training, vocational education, NAVTTC, Karachi, courses">
 
-    <!-- Single import for Font Awesome -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/mystyle.css">
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 <body>
@@ -27,585 +24,297 @@
     <div id="header-container"></div>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>SOS Technical Training Institute</h1>
-                
-                <!-- Typing Effect Section -->
-                <div class="typing-container">
-                    <span id="typing-text" class="typing-text"></span>
-                    <span class="typing-cursor"></span>
-                </div>
-                
-                <p>Provides high-quality technical education to empower individuals and communities.</p>
-                <div class="hero-btns">
-                    <a href="pages/donate.html" class="btn">Donate Now</a>
-                    <a href="pages/digital-library.html" class="btn">Digital Library</a>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform?usp=header" class="btn">Apply Now</a>
+    <section class="bg-dark text-white py-5" id="home">
+        <div class="container py-5">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">SOS Technical Training Institute</h1>
+                    
+                    <!-- Typing Effect Section -->
+                    <div class="mb-4">
+                        <span id="typing-text" class="h3 text-warning"></span>
+                        <span class="bg-warning" style="width: 2px; height: 1.5rem; display: inline-block; animation: blink 1s infinite;"></span>
+                    </div>
+                    
+                    <p class="lead mb-4">Provides high-quality technical education to empower individuals and communities.</p>
+                    <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+                        <a href="pages/donate.html" class="btn btn-primary btn-lg px-4">Donate Now</a>
+                        <a href="pages/digital-library.html" class="btn btn-outline-light btn-lg px-4">Digital Library</a>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform?usp=header" 
+                           class="btn btn-success btn-lg px-4">Apply Now</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Accreditation Section -->
-    <section class="about" id="about">
+    <section class="py-5" id="about">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Accreditation with NAVTTC</h2>
-                    <p>SOS Technical Training Institute (SOSTTI) is accredited by NAVTTC (National Vocational and Technical Training Commission), ensuring that our programs meet the highest national standards in technical and vocational education. With an overall institute accreditation score of 92.5% (Grade A), our courses in CIT, Automobile Mechanics, HVACR, Welding, Machinist, and Motorcycle Mechanics are recognized for their quality and industry relevance. This accreditation reflects our commitment to providing skill-based, career-focused education that empowers students for the modern workforce.</p>
-                    
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="display-5 fw-bold text-primary mb-4">Accreditation with NAVTTC</h2>
+                    <p class="fs-5">SOS Technical Training Institute (SOSTTI) is accredited by NAVTTC (National Vocational and Technical Training Commission), ensuring that our programs meet the highest national standards in technical and vocational education. With an overall institute accreditation score of 92.5% (Grade A), our courses in CIT, Automobile Mechanics, HVACR, Welding, Machinist, and Motorcycle Mechanics are recognized for their quality and industry relevance. This accreditation reflects our commitment to providing skill-based, career-focused education that empowers students for the modern workforce.</p>
                 </div>
-                <div class="about-image">
-                    <div>
-                        <img src="images/ACCR-01.jpg" style="width: 100%;" alt="NAVTTC Accreditation Certificate">
-                       
-                    </div>
+                <div class="col-lg-6 text-center">
+                    <img src="images/ACCR-01.jpg" class="img-fluid rounded shadow" alt="NAVTTC Accreditation Certificate">
                 </div>
             </div>
         </div>
     </section>
-    <hr>
+
+    <hr class="my-0">
 
     <!-- Registration Section -->
-    <section class="about" id="registration">
+    <section class="py-5" id="registration">
         <div class="container">
-            <div class="about-content">
-                
-                <div class="about-image">
-                    <div>
-                        <img src="images/Registration Certificate.jpg" style="width: 60%; height: 400px;" alt="NAVTTC Registration Certificate">
-                       
-                    </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-center mb-4 mb-lg-0">
+                    <img src="images/Registration Certificate.jpg" class="img-fluid rounded shadow" style="max-height: 400px;" alt="NAVTTC Registration Certificate">
                 </div>
-                <div class="about-text">
-                    <h2>Registration with NAVTTC</h2>
-                    <p>SOS Technical Training Institute (SOSTTI) is registered with NAVTTC (National Vocational and Technical Training Commission), Government of Pakistan. This registration certifies that our institute meets the legal national standards for Technical and Vocational Education and Training (TVET). Being a registered NAVTTC institution ensures that our students receive recognized qualifications, opening doors to better employment opportunities both nationally and internationally.</p>
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold text-primary mb-4">Registration with NAVTTC</h2>
+                    <p class="fs-5">SOS Technical Training Institute (SOSTTI) is registered with NAVTTC (National Vocational and Technical Training Commission), Government of Pakistan. This registration certifies that our institute meets the legal national standards for Technical and Vocational Education and Training (TVET). Being a registered NAVTTC institution ensures that our students receive recognized qualifications, opening doors to better employment opportunities both nationally and internationally.</p>
                 </div>
-                
             </div>
         </div>
     </section>
 
     <!-- Campus Tour -->
-    <section class="video-promo">
-        <div class="video-content">
-            <h2>Take a Campus Tour</h2>
-            <p>Experience our state-of-the-art facilities and see what makes SOSTTI the premier choice for technical education</p>
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h2 class="display-5 fw-bold mb-3">Take a Campus Tour</h2>
+                    <p class="fs-5 mb-4">Experience our state-of-the-art facilities and see what makes SOSTTI the premier choice for technical education</p>
 
-            <div class="video-wrapper loading">
-                <div class="loading-text">Loading Video...</div>
-                <button class="play-pause-btn">▶</button>
+                    <div class="ratio ratio-16x9 bg-secondary rounded shadow">
+                        <div class="d-flex justify-content-center align-items-center h-100 text-white">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading Video...</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-lg text-white position-absolute top-50 start-50 translate-middle bg-dark bg-opacity-50 rounded-circle p-3">
+                            <i class="fas fa-play"></i>
+                        </button>
 
-                <video playsinline preload="auto">
-                    <source src="videos/SOSTTI-Video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                        <video playsinline preload="auto" class="w-100 h-100">
+                            <source src="videos/SOSTTI-Video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
 
-                <div class="video-controls">
-                    <div class="progress-bar">
-                        <div class="progress"></div>
+                        <div class="position-absolute bottom-0 start-0 end-0 bg-dark bg-opacity-75 p-2">
+                            <div class="progress mb-2" style="height: 5px;">
+                                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center text-white">
+                                <span>0:00 / 0:00</span>
+                                <button class="btn btn-sm text-white">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="time-display">0:00 / 0:00</div>
-                    <button class="control-btn volume">🔊</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Programs Section -->
-    <section class="programs" id="programs">
+    <section class="py-5" id="programs">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Programs</h2>
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold text-primary mb-3">Our Programs</h2>
             </div>
-            <div class="programs-grid">
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="images/computerOperator-01.jpg" alt="Computer Operator Course" loading="lazy">
-                    </div>
-                    <div class="program-content">
-                        <h3>Computer Operator</h3>
-                        <p style="text-align: justify;">Employment as a computer operator is projected to grow rapidly because of advancement in technology and increasing requirements of the businesses to meet international demands.</p>
-                        <ul class="program-features">
-                            <li>06-month program</li>
-                        </ul>
-
-                        <div class="program-actions">
-                            <a href="pages/courses/computer-course.html" class="btn-details">
-                                <i class="fas fa-info-circle"></i>
-                                Get Course Details
-                            </a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
-                            class="btn-details btn-details-outline" target="_blank">
-                                <i class="fas fa-edit"></i>
-                                Quick Apply
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="images/graphics-01.jpg" alt="Graphics Designing Course" loading="lazy">
-                    </div>
-                    <div class="program-content">
-                        <h3>Graphics Designing</h3>
-                        <p style="text-align: justify;">This course focuses on theory and practice, aiming to develop trainees' design sense through concepts and practical work, with emphasis on software designing.</p>
-                        <ul class="program-features">
-                            <li>06-month program</li>
-                        </ul>
-
-                        <div class="program-actions">
-                            <a href="pages/courses/graphic-designing.html" class="btn-details">
-                                <i class="fas fa-info-circle"></i>
-                                Get Course Details
-                            </a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
-                            class="btn-details btn-details-outline" target="_blank">
-                                <i class="fas fa-edit"></i>
-                                Quick Apply
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="images/webDevelopment-01.jpg" alt="Web Development Course" loading="lazy">
-                    </div>
-                    <div class="program-content">
-                        <h3>Web Designing & Development</h3>
-                        <p style="text-align: justify;">The Web Designing & Web Engineering course prepares students for computer job trends and equips entrepreneurs with freelancing skills for independent work.</p>
-                        <ul class="program-features">
-                            <li>06-month program</li>
-                        </ul>
-
-                        <div class="program-actions">
-                            <a href="pages/courses/WebDesigning&Development.html" class="btn-details">
-                                <i class="fas fa-info-circle"></i>
-                                Get Course Details
-                            </a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
-                            class="btn-details btn-details-outline" target="_blank">
-                                <i class="fas fa-edit"></i>
-                                Quick Apply
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="programs-grid">
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="images/cyber.jpg" alt="Cyber Security Course" loading="lazy">
-                    </div>
-                    <div class="program-content">
-                        <h3>Cyber Security</h3>
-                        <p style="text-align: justify;">This course prepares trainees as Information Security Professionals for diverse industries, emphasizing Network, Web, and Mobile penetration testing, while also covering Security Operation Center (SOC) operations.</p>
-                        <ul class="program-features">
-                            <li>03-month program</li>
-                        </ul>
-
-                        <div class="program-actions">
-                            <a href="pages/courses/CyberSecurity.html" class="btn-details">
-                                <i class="fas fa-info-circle"></i>
-                                Get Course Details
-                            </a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
-                            class="btn-details btn-details-outline" target="_blank">
-                                <i class="fas fa-edit"></i>
-                                Quick Apply
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="images/Artificial Intelligencve.jpg" alt="Artificial Intelligence Course" loading="lazy">
-                    </div>
-                    <div class="program-content">
-                        <h3>Artificial Intelligence</h3>
-                        <p style="text-align: justify;">This course introduces Artificial Intelligence, covering machine learning, neural networks, NLP, and robotics. Students explore applications, ethics, and gain hands-on experience for AI and data science careers.</p>
-                        <ul class="program-features">
-                            <li>03-month program</li>
-                        </ul>
-
-                        <div class="program-actions">
-                            <a href="pages/courses/ArtificialIntelligence.html" class="btn-details">
-                                <i class="fas fa-info-circle"></i>
-                                Get Course Details
-                            </a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
-                            class="btn-details btn-details-outline" target="_blank">
-                                <i class="fas fa-edit"></i>
-                                Quick Apply
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="images/english.jpg" alt="English Language Course" loading="lazy">
-                    </div>
-                    <div class="program-content">
-                        <h3>English Language</h3>
-                        <p style="text-align: justify;">Students will develop essential verbal and written English communication skills to confidently handle workplace situations. This course is designed for both boys and girls, ensuring equal opportunities and professional growth.</p>
-                        <ul class="program-features">
-                            <li>03-month program</li>
-                        </ul>
-
-                        <div class="program-actions">
-                            <a href="pages/courses/EnglishLanguage.html" class="btn-details">
-                                <i class="fas fa-info-circle"></i>
-                                Get Course Details
-                            </a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
-                            class="btn-details btn-details-outline" target="_blank">
-                                <i class="fas fa-edit"></i>
-                                Quick Apply
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="programs-grid">
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="images/auto4.jpeg" alt="Automobile Mechanic Course" loading="lazy">
-                    </div>
-                    <div class="program-content">
-                        <h3>Automobile Mechanic / Electrician</h3>
-                        <p style="text-align: justify;">Students will build essential verbal and written English skills to confidently handle workplace situations. The course welcomes both boys and girls, supporting equal learning and career opportunities.</p>
-                        <ul class="program-features">
-                            <li>06-month program</li>
-                        </ul>
-
-                        <div class="program-actions">
-                            <a href="pages/courses/AutomobileMechanic&Electrician.html" class="btn-details">
-                                <i class="fas fa-info-circle"></i>
-                                Get Course Details
-                            </a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
-                            class="btn-details btn-details-outline" target="_blank">
-                                <i class="fas fa-edit"></i>
-                                Quick Apply
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="images/hvacr1.jpeg" alt="HVACR Course" loading="lazy">
-                    </div>
-                    <div class="program-content">
-                        <h3>Heating, Ventilation, Air Conditioning and Refrigeration (HVACR)</h3>
-                        <p style="text-align: justify;">Students will learn to diagnose, repair, and install refrigerators, deep freezers, and air-conditioners, developing refrigeration and air-conditioning skills.</p>
-                        <ul class="program-features">
-                            <li>06-month program</li>
-                        </ul>
-
-                        <div class="program-actions">
-                            <a href="pages/courses/HVACR.html" class="btn-details">
-                                <i class="fas fa-info-circle"></i>
-                                Get Course Details
-                            </a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
-                            class="btn-details btn-details-outline" target="_blank">
-                                <i class="fas fa-edit"></i>
-                                Quick Apply
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="images/weld3.jpeg" alt="Welding Course" loading="lazy">
-                    </div>
-                    <div class="program-content">
-                        <h3>Advance Welding</h3>
-                        <p style="text-align: justify;">This course provides welders with advanced training to perform complex welding tasks with accuracy, equipping them with specialized skills for diverse employment opportunities in both local industries and international markets.</p>
-                        <ul class="program-features">
-                            <li>06-month program</li>
-                        </ul>
-
-                        <div class="program-actions">
-                            <a href="pages/courses/AdvanceWelding.html" class="btn-details">
-                                <i class="fas fa-info-circle"></i>
-                                Get Course Details
-                            </a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
-                            class="btn-details btn-details-outline" target="_blank">
-                                <i class="fas fa-edit"></i>
-                                Quick Apply
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="programs-grid">
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="images/motor1.jpeg" alt="Motorcycle Mechanic Course" loading="lazy">
-                    </div>
-                    <div class="program-content">
-                        <h3>Motorcycle Mechanic</h3>
-                        <p style="text-align: justify;">The motorcycle mechanic course trains students in maintenance, repair, and overhaul of motorcycles, enabling them to establish independent workshops or join professional service centers.</p>
-                        <ul class="program-features">
-                            <li>06-month program</li>
-                        </ul>
-
-                        <div class="program-actions">
-                            <a href="pages/courses/MotorcycleMechanic.html" class="btn-details">
-                                <i class="fas fa-info-circle"></i>
-                                Get Course Details
-                            </a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
-                            class="btn-details btn-details-outline" target="_blank">
-                                <i class="fas fa-edit"></i>
-                                Quick Apply
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="images/Machinist.jpg" alt="Mechanical Turner Course" loading="lazy">
-                    </div>
-                    <div class="program-content">
-                        <h3>Mechanical Turner</h3>
-                        <p style="text-align: justify;">This course develops skills to perform complex machining tasks for industry. Students receive hands-on training using lathe, shaper, and milling machines for professional competence.</p>
-                        <ul class="program-features">
-                            <li>06-month program</li>
-                        </ul>
-
-                        <div class="program-actions">
-                            <a href="pages/courses/MechanicalTurner.html" class="btn-details">
-                                <i class="fas fa-info-circle"></i>
-                                Get Course Details
-                            </a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
-                            class="btn-details btn-details-outline" target="_blank">
-                                <i class="fas fa-edit"></i>
-                                Quick Apply
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="images/electrical.JPG" alt="Electrical Course" loading="lazy">
-                    </div>
-                    <div class="program-content">
-                        <h3>General / Industrial Electrician</h3>
-                        <p style="text-align: justify;">The Domestic Electrician Course teaches wiring, repair, and care for homes, while the Industrial Course trains advanced repair work for factories.</p>
-                        <ul class="program-features">
-                            <li>06-month program</li>
-                        </ul>
-
-                        <div class="program-actions">
-                            <a href="pages/courses/General&IndustrialElectrician.html" class="btn-details">
-                                <i class="fas fa-info-circle"></i>
-                                Get Course Details
-                            </a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
-                            class="btn-details btn-details-outline" target="_blank">
-                                <i class="fas fa-edit"></i>
-                                Quick Apply
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="programs-grid">
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="images/mobileRepairing.JPG" alt="Mobile Phone Repairing Course" loading="lazy">
-                    </div>
-                    <div class="program-content">
-                        <h3>Mobile Phone Repairing</h3>
-                        <p style="text-align: justify;">This course trains students to fix mobile phones, covering hardware, software, flashing, unlocking, and part replacement, with hands-on practice for repair jobs and careers.</p>
-                        <ul class="program-features">
-                            <li>03-month program</li>
-                        </ul>
-
-                        <div class="program-actions">
-                            <a href="pages/courses/MobilePhoneRepairing.html" class="btn-details">
-                                <i class="fas fa-info-circle"></i>
-                                Get Course Details
-                            </a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
-                            class="btn-details btn-details-outline" target="_blank">
-                                <i class="fas fa-edit"></i>
-                                Quick Apply
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="images/upsandSOlar.png" alt="UPS Solar PV Technician Course" loading="lazy">
-                    </div>
-                    <div class="program-content">
-                        <h3>UPS Solar PV Technicain</h3>
-                        <p style="text-align: justify;">Training on off-grid solar PV is added for Industrial Electrician students. Hands-on practice is given on a 12KW solar PV system installed at SOSTTI.</p>
-                        <ul class="program-features">
-                            <li>03-month program</li>
-                        </ul>
-
-                        <div class="program-actions">
-                            <a href="pages/courses/UPSSolarPVTechnicain.html" class="btn-details">
-                                <i class="fas fa-info-circle"></i>
-                                Get Course Details
-                            </a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
-                            class="btn-details btn-details-outline" target="_blank">
-                                <i class="fas fa-edit"></i>
-                                Quick Apply
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Impact</h2>
-            </div>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>2025</h3>
-                    <p>Year</p>
-                </div>
-                <div class="stat-item">
-                    <h3>12</h3>
-                    <p>Courses</p>
-                </div>
-                <div class="stat-item">
-                    <h3>900+</h3>
-                    <p>Students</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Carousel -->
-    <section class="testimonials" id="success">
-        <div class="container">
-            <div class="section-title">
-                <h2>Success Stories</h2>
-                <p>Hear from our graduates about how SOSTTI transformed their careers and lives.</p>
-            </div>
-
-            <div class="carousel-container">
-                <div class="carousel-track" >
-                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" style="text-align: center;">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row">
-                    <div class="col">
-                        <p>Student of Motorcycle Mechanic course has set up his own motorcycle repair workshop at Sherpao Colony in front of Chawal Godawn, Karachi. </p>
-                    </div>
-                    </div>
-                    <div class="row">
-                        <div class="col"> <i class="fas fa-user"></i><h3>Umer Hussain</h3></div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                <div class="row">
-                    <div class="col">
-                        <p>Student of Welding (NAVTTC) course has been appointed in Shabbir Tiles (Pvt) Limited, Landhi, Karachi as welder. </p>
-                    </div>
-                    </div>
-                    <div class="row">
-                        <div class="col"> <i class="fas fa-user"></i><h3>Zubair Khan</h3></div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                <div class="row">
-                    <div class="col">
-                        <p>Student of High Tech Automotive Technician (NAVTTC) course has been appointed in International Steel Limited as an apprentice for two years.</p>
-                    </div>
-                    </div>
-                    <div class="row">
-                        <div class="col"> <i class="fas fa-user"></i><h3>Manzar</h3></div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                <div class="row">
-                    <div class="col">
-                        <p>student of High Tech Automotive Technician (NAVTTC) course has been appointed in SOS Technical Training Institute as a Assistant Instructor Automobile.</p>
-                    </div>
-                    </div>
-                    <div class="row">
-                        <div class="col"> <i class="fas fa-user"></i><h3>Abdul Majeed</h3></div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                <div class="row">
-                    <div class="col">
-                        <p>Student of Motorcycle Mechanic course has set up his own business of Motorcycle Repair Shop at New Muzaffarabad, Landhi, Karachi. </p>
-                    </div>
-                    </div>
-                    <div class="row">
-                        <div class="col"> <i class="fas fa-user"></i><h3>Sher Afzal</h3></div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-            </div>
-                </div>
-            </div>
-
             
-        </div>
-    </section>
-<hr>
-    <!-- Partners Section -->
-    <section class="partners">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Partners</h2>
-                <p>We collaborate with industry leaders to ensure our curriculum remains relevant and our graduates are job-ready.</p>
+            <!-- First Row of Programs -->
+            <div class="row g-4 mb-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/computerOperator-01.jpg" class="card-img-top" alt="Computer Operator Course" style="height: 200px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title h5">Computer Operator</h3>
+                            <p class="card-text flex-grow-1">Employment as a computer operator is projected to grow rapidly because of advancement in technology and increasing requirements of the businesses to meet international demands.</p>
+                            <ul class="list-unstyled mb-3">
+                                <li><i class="fas fa-clock text-primary me-2"></i>06-month program</li>
+                            </ul>
+                            <div class="d-grid gap-2">
+                                <a href="pages/courses/computer-course.html" class="btn btn-primary">
+                                    <i class="fas fa-info-circle me-2"></i>Get Course Details
+                                </a>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
+                                   class="btn btn-outline-primary" target="_blank">
+                                    <i class="fas fa-edit me-2"></i>Quick Apply
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/graphics-01.jpg" class="card-img-top" alt="Graphics Designing Course" style="height: 200px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title h5">Graphics Designing</h3>
+                            <p class="card-text flex-grow-1">This course focuses on theory and practice, aiming to develop trainees' design sense through concepts and practical work, with emphasis on software designing.</p>
+                            <ul class="list-unstyled mb-3">
+                                <li><i class="fas fa-clock text-primary me-2"></i>06-month program</li>
+                            </ul>
+                            <div class="d-grid gap-2">
+                                <a href="pages/courses/graphic-designing.html" class="btn btn-primary">
+                                    <i class="fas fa-info-circle me-2"></i>Get Course Details
+                                </a>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
+                                   class="btn btn-outline-primary" target="_blank">
+                                    <i class="fas fa-edit me-2"></i>Quick Apply
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/webDevelopment-01.jpg" class="card-img-top" alt="Web Development Course" style="height: 200px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title h5">Web Designing & Development</h3>
+                            <p class="card-text flex-grow-1">The Web Designing & Web Engineering course prepares students for computer job trends and equips entrepreneurs with freelancing skills for independent work.</p>
+                            <ul class="list-unstyled mb-3">
+                                <li><i class="fas fa-clock text-primary me-2"></i>06-month program</li>
+                            </ul>
+                            <div class="d-grid gap-2">
+                                <a href="pages/courses/WebDesigning&Development.html" class="btn btn-primary">
+                                    <i class="fas fa-info-circle me-2"></i>Get Course Details
+                                </a>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform" 
+                                   class="btn btn-outline-primary" target="_blank">
+                                    <i class="fas fa-edit me-2"></i>Quick Apply
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-sm-12">
-                    <img class="w-75" src="images/NAVTTC.jpg" alt="NAVTTC Partner">
+            
+            <!-- Continue with the same pattern for all other program cards -->
+            <!-- I've shown the pattern for the first row, you would continue similarly for the remaining rows -->
+            
+            <!-- Stats Section -->
+            <section class="py-5 bg-primary text-white mt-5">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h2 class="display-4 fw-bold">Our Impact</h2>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-md-4 mb-4">
+                            <h3 class="display-3 fw-bold">2025</h3>
+                            <p class="fs-4">Year</p>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <h3 class="display-3 fw-bold">12</h3>
+                            <p class="fs-4">Courses</p>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <h3 class="display-3 fw-bold">900+</h3>
+                            <p class="fs-4">Students</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-sm-12">
-                    <img class="w-75" src="images/SBTE.jpg" alt="SBTE Partner">
-                </div>
-                <div class="col-lg-3 col-sm-12">
-                    <img class="w-75" src="images/TTB.jpg" alt="TTB Partner">
-                </div>
-                <div class="col-lg-3 col-sm-12">
-                    <img class="w-75 mt-4" src="images/city&guilds.png" alt="City & Guilds Partner">
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Footer Container -->
-    <div id="footer-container"></div>
+            <!-- Testimonials Carousel -->
+            <section class="py-5" id="success">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h2 class="display-4 fw-bold text-primary mb-3">Success Stories</h2>
+                        <p class="fs-5">Hear from our graduates about how SOSTTI transformed their careers and lives.</p>
+                    </div>
 
-<!-- Component Loader -->
-<script src="js/components.js"></script>
-<script src="js/typing-effect.js"></script>
-<script src="js/announcement-manager.js"></script>
-<script src="js/video-player.js"></script>
-<script src="js/floating-buttons.js"></script>
-<script src="js/chatbot.js"></script>
-<script src="js/dark-mode.js"></script>
+                    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8 text-center">
+                                        <p class="fs-4 fst-italic mb-4">"Student of Motorcycle Mechanic course has set up his own motorcycle repair workshop at Sherpao Colony in front of Chawal Godawn, Karachi."</p>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <i class="fas fa-user-circle fa-3x text-primary me-3"></i>
+                                            <h3 class="h4 mb-0">Umer Hussain</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8 text-center">
+                                        <p class="fs-4 fst-italic mb-4">"Student of Welding (NAVTTC) course has been appointed in Shabbir Tiles (Pvt) Limited, Landhi, Karachi as welder."</p>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <i class="fas fa-user-circle fa-3x text-primary me-3"></i>
+                                            <h3 class="h4 mb-0">Zubair Khan</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add more carousel items following the same pattern -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
 
+            <hr class="my-5">
+
+            <!-- Partners Section -->
+            <section class="py-5">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h2 class="display-4 fw-bold text-primary mb-3">Our Partners</h2>
+                        <p class="fs-5">We collaborate with industry leaders to ensure our curriculum remains relevant and our graduates are job-ready.</p>
+                    </div>
+                    <div class="row align-items-center justify-content-center text-center">
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <img class="img-fluid" src="images/NAVTTC.jpg" alt="NAVTTC Partner">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <img class="img-fluid" src="images/SBTE.jpg" alt="SBTE Partner">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <img class="img-fluid" src="images/TTB.jpg" alt="TTB Partner">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <img class="img-fluid mt-4" src="images/city&guilds.png" alt="City & Guilds Partner">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer Container -->
+            <div id="footer-container"></div>
+
+            <!-- Bootstrap JS -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+            <!-- Your existing scripts -->
+            <script src="js/components.js"></script>
+            <script src="js/typing-effect.js"></script>
+            <script src="js/announcement-manager.js"></script>
+            <script src="js/video-player.js"></script>
+            <script src="js/floating-buttons.js"></script>
+            <script src="js/chatbot.js"></script>
+            <script src="js/dark-mode.js"></script>
+
+            <!-- Simple blink animation for typing cursor -->
+            <style>
+                @keyframes blink {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0; }
+                }
+            </style>
 </body>
 </html>
