@@ -1,8 +1,20 @@
-// Simple Image Announcement - Show Only Picture
+// Simple Image Announcement - Multiple Ads Rotation
 class SimpleImageAnnouncement {
     constructor() {
-        console.log('🖼️ Image Announcement Initialized');
+        this.ads = this.getAds();
+        this.currentAdIndex = 0;
+        console.log('🖼️ Image Announcement Initialized with', this.ads.length, 'ads');
         this.init();
+    }
+
+    getAds() {
+        return [
+            'images/ads/ad1.jpg',
+            'images/ads/ad2.jpg'
+            // Add more ads in future:
+            // 'images/ads/ad3.jpg',
+            // 'images/ads/ad4.jpg'
+        ];
     }
 
     init() {
@@ -90,6 +102,53 @@ class SimpleImageAnnouncement {
                 box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             }
 
+            /* Ad counter for multiple ads */
+            .adCounter {
+                position: absolute;
+                top: -15px;
+                left: -15px;
+                background: rgba(0,0,0,0.8);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-size: 12px;
+                z-index: 10;
+            }
+
+            /* Navigation arrows for multiple ads */
+            .navArrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0,0,0,0.6);
+                color: white;
+                border: none;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                cursor: pointer;
+                font-size: 18px;
+                display: none;
+            }
+
+            .navArrow:hover {
+                background: rgba(0,0,0,0.9);
+            }
+
+            .prevArrow {
+                left: -20px;
+            }
+
+            .nextArrow {
+                right: -20px;
+            }
+
+            #imageAnnouncementPopup:hover .navArrow {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
             @media (max-width: 768px) {
                 #imageAnnouncementOverlay {
                     padding: 10px;
@@ -105,6 +164,26 @@ class SimpleImageAnnouncement {
                     width: 35px;
                     height: 35px;
                     font-size: 18px;
+                }
+
+                .adCounter {
+                    top: -10px;
+                    left: -10px;
+                    font-size: 11px;
+                }
+
+                .navArrow {
+                    width: 35px;
+                    height: 35px;
+                    font-size: 16px;
+                }
+
+                .prevArrow {
+                    left: -15px;
+                }
+
+                .nextArrow {
+                    right: -15px;
                 }
             }
 
@@ -124,23 +203,75 @@ class SimpleImageAnnouncement {
                 .announcementImage {
                     border-radius: 5px;
                 }
+
+                .adCounter {
+                    top: -5px;
+                    left: -5px;
+                    font-size: 10px;
+                    padding: 3px 8px;
+                }
+
+                .navArrow {
+                    width: 30px;
+                    height: 30px;
+                    font-size: 14px;
+                }
+
+                .prevArrow {
+                    left: -10px;
+                }
+
+                .nextArrow {
+                    right: -10px;
+                }
             }
             </style>
         `;
         
         document.head.insertAdjacentHTML('beforeend', styles);
 
-        // Add HTML - ONLY the image
+        // Add HTML
+        this.injectHTML();
+    }
+
+    injectHTML() {
         const html = `
             <div id="imageAnnouncementOverlay">
                 <div id="imageAnnouncementPopup">
                     <button class="imageCloseBtn" onclick="document.getElementById('imageAnnouncementOverlay').style.display='none'">×</button>
-                    <img src="images/ads/ad1.jpg" alt="SOSTTI Courses" class="announcementImage">
+                    ${this.ads.length > 1 ? '<div class="adCounter" id="adCounter">1/' + this.ads.length + '</div>' : ''}
+                    ${this.ads.length > 1 ? '<button class="navArrow prevArrow" id="prevArrow">‹</button>' : ''}
+                    ${this.ads.length > 1 ? '<button class="navArrow nextArrow" id="nextArrow">›</button>' : ''}
+                    <img src="${this.ads[0]}" alt="SOSTTI Courses" class="announcementImage" id="announcementImage">
                 </div>
             </div>
         `;
         
         document.body.insertAdjacentHTML('beforeend', html);
+        
+        // Setup navigation if multiple ads
+        if (this.ads.length > 1) {
+            this.setupNavigation();
+        }
+    }
+
+    setupNavigation() {
+        const prevArrow = document.getElementById('prevArrow');
+        const nextArrow = document.getElementById('nextArrow');
+        const image = document.getElementById('announcementImage');
+        const counter = document.getElementById('adCounter');
+
+        prevArrow.onclick = () => {
+            this.currentAdIndex = (this.currentAdIndex - 1 + this.ads.length) % this.ads.length;
+            image.src = this.ads[this.currentAdIndex];
+            counter.textContent = `${this.currentAdIndex + 1}/${this.ads.length}`;
+        };
+
+        nextArrow.onclick = () => {
+            this.currentAdIndex = (this.currentAdIndex + 1) % this.ads.length;
+            image.src = this.ads[this.currentAdIndex];
+            counter.textContent = `${this.currentAdIndex + 1}/${this.ads.length}`;
+        };
     }
 
     showAnnouncement() {
