@@ -69,7 +69,7 @@ class SOSTTIAnnouncementManager {
             return false;
         }
 
-        // TESTING: Show only 5 times total
+        // TESTING: Show only 10 times total
         if (data.totalShows >= 10) {
             console.log('Testing limit reached: Already shown 10 times');
             return false;
@@ -86,12 +86,12 @@ class SOSTTIAnnouncementManager {
             const daysSinceLastShow = (new Date() - new Date(data.lastSeen)) / (1000 * 60 * 60 * 24);
             const totalShows = data.totalShows || 0;
             
-            // First 5 shows: Show every visit (no waiting)
+            // First 10 shows: Show every visit (no waiting)
             if (totalShows < 10) {
                 console.log(`Show ${totalShows + 1} of 10 - No waiting period`);
-                // No time restriction for first 5 shows
+                // No time restriction for first 10 shows
             } 
-            // After 5 shows: Switch to 1-day interval
+            // After 10 shows: Switch to 1-day interval
             else if (daysSinceLastShow < this.config.daysBetweenShows) {
                 console.log(`Already shown ${totalShows} times, waiting ${this.config.daysBetweenShows} days`);
                 return false;
@@ -190,29 +190,14 @@ class SOSTTIAnnouncementManager {
     getCourseAds() {
         return [
             {
-                image: 'images/ads/sostticityguilds.jpg',
-                title: "International Certification Courses",
-                description: "Get City & Guilds International Certification in HVACR, General Electrician, and Full Stack Development with globally recognized qualifications.",
-                cta: "Get Certified",
+                image: 'images/ads/ad1.jpg',
+                title: "SOS TECHNICAL TRAINING INSTITUTE",
+                description: "Admissions open for FREE COURSES with professional certification. Enhance your technical skills and career opportunities.",
+                cta: "Get More Information",
                 link: "pages/about-contact.html",
                 highlights: [
-                    { icon: "fas fa-certificate", text: "City & Guilds Certified" },
-                    { icon: "fas fa-snowflake", text: "HVACR Course" },
-                    { icon: "fas fa-bolt", text: "General Electrician" },
-                    { icon: "fas fa-code", text: "Full Stack Development" }
-                ],
-                footer: "Certification Fees: UK Pound 60 | Rs: 22,800/-",
-                contact: "Interested Candidates Contact with HOD or Admin Office"
-            },
-            {
-                image: 'images/ads/sosttinavttc.jpg',
-                title: "FREE NAVTTC COURSES ADMISSION OPEN",
-                description: "Enroll in our free technical courses with certification. Limited seats available for aspiring technicians.",
-                cta: "Apply Now",
-                link: "https://docs.google.com/forms/d/e/1FAIpQLSdnJItkIMyt3SGNaDeTBDcMTBKNeKJ4lC8cx3wxSOvjpciX4g/viewform",
-                highlights: [
-                    { icon: "fas fa-car", text: "High Tech Automotive" },
-                    { icon: "fas fa-wind", text: "Refrigeration & AC" },
+                    { icon: "fas fa-car", text: "High Tech Automotive Technician" },
+                    { icon: "fas fa-wind", text: "Refrigeration and Air-Conditioning" },
                     { icon: "fas fa-mobile-alt", text: "Mobile Phone Repairing" },
                     { icon: "fas fa-tools", text: "Advance Welding" },
                     { icon: "fas fa-bolt", text: "General Electrician" }
@@ -232,22 +217,21 @@ class SOSTTIAnnouncementManager {
             return;
         }
 
-        // Rotate between the two ads
-        const data = this.getStoredData();
-        const adIndex = data.totalShows % this.courseAds.length;
-        const currentAd = this.courseAds[adIndex];
+        // Use the first ad (your image)
+        const currentAd = this.courseAds[0];
         
         this.updateAdContent(currentAd);
 
         overlay.style.display = 'flex';
         
         // Update tracking
+        const data = this.getStoredData();
         data.lastSeen = new Date().toISOString();
-        data.lastAdIndex = adIndex;
+        data.lastAdIndex = 0;
         data.totalShows = (data.totalShows || 0) + 1;
         this.saveStoredData(data);
 
-        console.log(`Showing ad ${adIndex + 1} of ${this.courseAds.length}, total shows: ${data.totalShows}`);
+        console.log(`Showing ad, total shows: ${data.totalShows}`);
     }
 
     updateAdContent(ad) {
@@ -261,7 +245,10 @@ class SOSTTIAnnouncementManager {
         const contactInfo = document.getElementById('announcementContact');
 
         // Update image
-        if (image) image.src = ad.image;
+        if (image) {
+            image.src = ad.image;
+            image.alt = ad.title;
+        }
         
         // Update text content
         if (title) title.textContent = ad.title;
@@ -338,15 +325,17 @@ class SOSTTIAnnouncementManager {
         }
 
         // Close when clicking outside
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) {
-                this.handleUserChoice('later');
-            }
-        });
+        if (overlay) {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    this.handleUserChoice('later');
+                }
+            });
+        }
 
         // Escape key to close
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            if (e.key === 'Escape' && overlay && overlay.style.display === 'flex') {
                 this.handleUserChoice('later');
             }
         });
@@ -356,9 +345,11 @@ class SOSTTIAnnouncementManager {
         console.log('User choice:', choice);
         
         const overlay = document.getElementById('announcementOverlay');
-        overlay.style.display = 'none';
+        if (overlay) {
+            overlay.style.display = 'none';
+        }
 
-        const data = this.getStoredData();
+        const data = this.getStoredData() || {};
         
         switch(choice) {
             case 'interested':
