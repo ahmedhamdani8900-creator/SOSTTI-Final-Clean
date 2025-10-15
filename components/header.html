@@ -1,87 +1,137 @@
 <header>
-    <div class="container">
-        <nav class="navbar">
-            <a class="logo" href="index.html">
-                <img src="/images/SOS Logo.png" alt="SOSTTI Logo" style="width: 70px;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="index.html">
+                <img src="/images/SOS Logo.png" alt="SOSTTI Logo" width="70">
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html">HOME</a></li>
-                <li class="dropdown">
-                    <a>ABOUT US <i class="fas fa-chevron-down dropdown-arrow"></i></a>
-                    <div class="dropdown-content">
-                        <a href="pages/about-philosophy.html">SOSTTI's PHILOSOPHY</a>
-                        <a href="pages/about-missions.html">MISSIONS</a>
-                        <a href="pages/aim-objective.html">AIMS & OBJECTIVES</a>
-                        <a href="pages/managing-committee.html">MANAGING COMMITTEE</a>
-                        <a href="pages/history.html">HISTORY</a>
-                        <a href="pages/about-contact.html">CONTACT US</a>
-                    </div>
-                </li>
-                <li><a href="pages/prospectus.html">PROSPECTUS</a></li>
-                <li class="dropdown">
-                    <a>COURSES <i class="fas fa-chevron-down dropdown-arrow"></i></a>
-                    <div class="dropdown-content">
-                        <div class="nested-dropdown">
-                            <a>COMPUTER COURSES <i class="fas fa-chevron-right nested-arrow"></i></a>
-                            <div class="nested-dropdown-content">
-                                <a href="pages/courses/computer-course.html">COMPUTER OPERATOR</a>
-                                <a href="pages/courses/graphic-designing.html">GRAPHICS DESIGNING</a>
-                                <a href="pages/courses/WebDesigning&Development.html">WEB DESIGNING & WEB DEVELOPMENT</a>
-                                <a href="pages/courses/CyberSecurity.html">CYBER SECURITY</a>
-                                <a href="pages/courses/ArtificialIntelligence.html">ARTIFICIAL INTELLIGENCE</a>
-                            </div>
-                        </div>
-                        <div class="nested-dropdown">
-                            <a>TECHNICAL COURSES <i class="fas fa-chevron-right nested-arrow"></i></a>
-                            <div class="nested-dropdown-content">
-                                <a href="pages/courses/AutomobileMechanic&Electrician.html">AUTOMOBILE MECHANIC / AUTOMOBILE ELECTRICIAN</a>
-                                <a href="pages/courses/HVACR.html">HEATING, VENTILATION, AIRCONDITIONING AND REFRIGERATION (HVACR)</a>
-                                <a href="pages/courses/AdvanceWelding.html">ADVANCE WELDING</a>
-                                <a href="pages/courses/MotorcycleMechanic.html">MOTORCYCLE MECHANIC</a>
-                                <a href="pages/courses/MechanicalTurner.html">MACHINIST / TURNER</a>
-                                <a href="pages/courses/General&IndustrialElectrician.html">GENERAL ELECTRICIAN / INDUSTRIAL ELECTRICIAN</a>
-                                <a href="pages/courses/MobilePhoneRepairing.html">MOBILE PHONE REPAIRING</a>
-                                <a href="pages/courses/UPSSolarPVTechnicain.html">UPS & SOLAR PV TECHNICIAN</a>
-                            </div>
-                        </div>
-                        <a href="pages/courses/EnglishLanguage.html">ENGLISH LANGUAGE</a>
-                        <a href="pages/courses/navttcCourses.html">NAVTTC COURSES</a>
-                        <a href="pages/courses/bbshrrdbCourses.html">BBSHRRDB COURSES</a>
-                        <a href="pages/courses/rpl.html">RPL COURSES</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a>ADMISSIONS <i class="fas fa-chevron-down dropdown-arrow"></i></a>
-                    <div class="dropdown-content">
-                        <div class="nested-dropdown">
-                            <a>ADMISSION INFO <i class="fas fa-chevron-right nested-arrow"></i></a>
-                            <div class="nested-dropdown-content">
-                                <a href="pages/admissionschedule.html">ADMISSION SCHEDULE</a>
-                                <a href="pages/feestructure.html">FEE STRUCTURE</a>
-                            </div>
-                        </div>
-                        <div class="nested-dropdown">
-                            <a>INSTITUTE POLICIES <i class="fas fa-chevron-right nested-arrow"></i></a>
-                            <div class="nested-dropdown-content">
-                                <a href="pages/admission-policy.html">ADMISSION POLICY</a>
-                                <a href="pages/safety-health-policy.html">SAFETY POLICY</a>
-                                <a href="pages/examination-policy.html">EXAMINATION POLICY</a>
-                                <a href="pages/asset-management-policy.html">ASSET MANAGEMENT POLICY</a>
-                                <a href="pages/procurement-policy.html">PROCUREMENT POLICY</a>
-                                <a href="pages/complaint-policy.html">COMPLAINT POLICY</a>
-                                <a href="pages/staff-benefits-policy.html">STAFF BENEFIT MANAGEMENT POLICY</a>
-                                <a href="pages/attendance-policy.html">ATTENDANCE POLICY</a>
-                                <a href="pages/discipline-policy.html">DISCIPLINE POLICY</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="pages/events.html">EVENTS</a></li>
-                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdkpnbw46lDJyMzebKQ6zcEi4C4Q0Rl9ZMwb8g6e79Wsv3lEw/viewform?usp=header">COMPLAINT PAGE</a></li>
-            </ul>
-            <div class="mobile-menu" aria-label="Toggle navigation">
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+
+                    <!-- About Us Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ABOUT US
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="pages/about-philosophy.html">SOSTTI's PHILOSOPHY</a></li>
+                            <li><a class="dropdown-item" href="pages/about-missions.html">MISSIONS</a></li>
+                            <li><a class="dropdown-item" href="pages/aim-objective.html">AIMS & OBJECTIVES</a></li>
+                            <li><a class="dropdown-item" href="pages/managing-committee.html">MANAGING COMMITTEE</a></li>
+                            <li><a class="dropdown-item" href="pages/history.html">HISTORY</a></li>
+                            <li><a class="dropdown-item" href="pages/about-contact.html">CONTACT US</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Prospectus -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/prospectus.html">PROSPECTUS</a>
+                    </li>
+
+                    <!-- Courses Mega Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            COURSES
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- Computer Courses -->
+                            <li class="dropend">
+                                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                    COMPUTER COURSES
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="pages/courses/computer-course.html">COMPUTER OPERATOR</a></li>
+                                    <li><a class="dropdown-item" href="pages/courses/graphic-designing.html">GRAPHICS DESIGNING</a></li>
+                                    <li><a class="dropdown-item" href="pages/courses/WebDesigning&Development.html">WEB DESIGNING & WEB DEVELOPMENT</a></li>
+                                    <li><a class="dropdown-item" href="pages/courses/CyberSecurity.html">CYBER SECURITY</a></li>
+                                    <li><a class="dropdown-item" href="pages/courses/ArtificialIntelligence.html">ARTIFICIAL INTELLIGENCE</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- Technical Courses -->
+                            <li class="dropend">
+                                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                    TECHNICAL COURSES
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="pages/courses/AutomobileMechanic&Electrician.html">AUTOMOBILE MECHANIC / AUTOMOBILE ELECTRICIAN</a></li>
+                                    <li><a class="dropdown-item" href="pages/courses/HVACR.html">HEATING, VENTILATION, AIRCONDITIONING AND REFRIGERATION (HVACR)</a></li>
+                                    <li><a class="dropdown-item" href="pages/courses/AdvanceWelding.html">ADVANCE WELDING</a></li>
+                                    <li><a class="dropdown-item" href="pages/courses/MotorcycleMechanic.html">MOTORCYCLE MECHANIC</a></li>
+                                    <li><a class="dropdown-item" href="pages/courses/MechanicalTurner.html">MACHINIST / TURNER</a></li>
+                                    <li><a class="dropdown-item" href="pages/courses/General&IndustrialElectrician.html">GENERAL ELECTRICIAN / INDUSTRIAL ELECTRICIAN</a></li>
+                                    <li><a class="dropdown-item" href="pages/courses/MobilePhoneRepairing.html">MOBILE PHONE REPAIRING</a></li>
+                                    <li><a class="dropdown-item" href="pages/courses/UPSSolarPVTechnicain.html">UPS & SOLAR PV TECHNICIAN</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- Other Course Links -->
+                            <li><a class="dropdown-item" href="pages/courses/EnglishLanguage.html">ENGLISH LANGUAGE</a></li>
+                            <li><a class="dropdown-item" href="pages/courses/navttcCourses.html">NAVTTC COURSES</a></li>
+                            <li><a class="dropdown-item" href="pages/courses/bbshrrdbCourses.html">BBSHRRDB COURSES</a></li>
+                            <li><a class="dropdown-item" href="pages/courses/rpl.html">RPL COURSES</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Admissions Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ADMISSIONS
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- Admission Info -->
+                            <li class="dropend">
+                                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                    ADMISSION INFO
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="pages/admissionschedule.html">ADMISSION SCHEDULE</a></li>
+                                    <li><a class="dropdown-item" href="pages/feestructure.html">FEE STRUCTURE</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- Institute Policies -->
+                            <li class="dropend">
+                                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                    INSTITUTE POLICIES
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="pages/admission-policy.html">ADMISSION POLICY</a></li>
+                                    <li><a class="dropdown-item" href="pages/safety-health-policy.html">SAFETY POLICY</a></li>
+                                    <li><a class="dropdown-item" href="pages/examination-policy.html">EXAMINATION POLICY</a></li>
+                                    <li><a class="dropdown-item" href="pages/asset-management-policy.html">ASSET MANAGEMENT POLICY</a></li>
+                                    <li><a class="dropdown-item" href="pages/procurement-policy.html">PROCUREMENT POLICY</a></li>
+                                    <li><a class="dropdown-item" href="pages/complaint-policy.html">COMPLAINT POLICY</a></li>
+                                    <li><a class="dropdown-item" href="pages/staff-benefits-policy.html">STAFF BENEFIT MANAGEMENT POLICY</a></li>
+                                    <li><a class="dropdown-item" href="pages/attendance-policy.html">ATTENDANCE POLICY</a></li>
+                                    <li><a class="dropdown-item" href="pages/discipline-policy.html">DISCIPLINE POLICY</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Events -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/events.html">EVENTS</a>
+                    </li>
+
+                    <!-- Complaint Page -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://docs.google.com/forms/d/e/1FAIpQLSdkpnbw46lDJyMzebKQ6zcEi4C4Q0Rl9ZMwb8g6e79Wsv3lEw/viewform?usp=header">COMPLAINT PAGE</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
 </header>
