@@ -1,4 +1,4 @@
-// Simple Image Announcement - Fixed Height for All Devices
+// Simple Image Announcement - Full Width on Mobile
 class SimpleImageAnnouncement {
     constructor() {
         this.ads = this.getAds();
@@ -10,9 +10,6 @@ class SimpleImageAnnouncement {
     getAds() {
         return [
             'images/ads/ad1.jpg'
-            // Add more ads in future:
-            // 'images/ads/ad3.jpg',
-            // 'images/ads/ad4.jpg'
         ];
     }
 
@@ -39,7 +36,7 @@ class SimpleImageAnnouncement {
     }
 
     createAnnouncement() {
-        // Add styles with fixed height handling
+        // Add styles with mobile-first approach
         const styles = `
             <style id="imageAnnouncementStyles">
             #imageAnnouncementOverlay {
@@ -53,16 +50,15 @@ class SimpleImageAnnouncement {
                 z-index: 99999;
                 justify-content: center;
                 align-items: center;
-                padding: 20px;
+                padding: 10px;
                 box-sizing: border-box;
             }
 
             #imageAnnouncementPopup {
                 background: transparent;
                 position: relative;
-                max-width: 600px;
                 width: 100%;
-                max-height: 80vh;
+                max-width: 500px;
                 animation: slideIn 0.3s ease-out;
             }
 
@@ -73,17 +69,17 @@ class SimpleImageAnnouncement {
 
             .imageCloseBtn {
                 position: absolute;
-                top: -15px;
-                right: -15px;
+                top: -10px;
+                right: -10px;
                 background: rgba(0,0,0,0.8);
                 color: white;
                 border: none;
-                width: 40px;
-                height: 40px;
+                width: 35px;
+                height: 35px;
                 border-radius: 50%;
                 cursor: pointer;
                 z-index: 10;
-                font-size: 20px;
+                font-size: 18px;
                 font-weight: bold;
                 display: flex;
                 align-items: center;
@@ -97,34 +93,28 @@ class SimpleImageAnnouncement {
 
             .imageContainer {
                 width: 100%;
-                height: 0;
-                padding-bottom: 56.25%; /* 16:9 aspect ratio */
-                position: relative;
                 overflow: hidden;
-                border-radius: 10px;
+                border-radius: 8px;
                 box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                background: transparent;
             }
 
             .announcementImage {
-                position: absolute;
-                top: 0;
-                left: 0;
                 width: 100%;
-                height: 100%;
-                object-fit: contain;
-                background: white;
+                height: auto;
+                display: block;
             }
 
             /* Ad counter for multiple ads */
             .adCounter {
                 position: absolute;
-                top: -15px;
-                left: -15px;
+                top: -10px;
+                left: -10px;
                 background: rgba(0,0,0,0.8);
                 color: white;
-                padding: 5px 10px;
-                border-radius: 15px;
-                font-size: 12px;
+                padding: 4px 8px;
+                border-radius: 12px;
+                font-size: 11px;
                 z-index: 10;
             }
 
@@ -136,11 +126,11 @@ class SimpleImageAnnouncement {
                 background: rgba(0,0,0,0.6);
                 color: white;
                 border: none;
-                width: 40px;
-                height: 40px;
+                width: 35px;
+                height: 35px;
                 border-radius: 50%;
                 cursor: pointer;
-                font-size: 18px;
+                font-size: 16px;
                 display: none;
                 z-index: 10;
             }
@@ -150,11 +140,11 @@ class SimpleImageAnnouncement {
             }
 
             .prevArrow {
-                left: -20px;
+                left: -15px;
             }
 
             .nextArrow {
-                right: -20px;
+                right: -15px;
             }
 
             #imageAnnouncementPopup:hover .navArrow {
@@ -163,129 +153,133 @@ class SimpleImageAnnouncement {
                 justify-content: center;
             }
 
-            /* Fixed height for different screen sizes */
-            @media (max-width: 1200px) {
-                #imageAnnouncementPopup {
-                    max-width: 550px;
-                }
-            }
-
-            @media (max-width: 992px) {
-                #imageAnnouncementPopup {
-                    max-width: 500px;
-                }
-            }
-
+            /* Mobile First - Full width with auto height */
             @media (max-width: 768px) {
-                #imageAnnouncementOverlay {
-                    padding: 15px;
-                }
-                
-                #imageAnnouncementPopup {
-                    max-width: 450px;
-                }
-                
-                .imageCloseBtn {
-                    top: -10px;
-                    right: -10px;
-                    width: 35px;
-                    height: 35px;
-                    font-size: 18px;
-                }
-
-                .adCounter {
-                    top: -10px;
-                    left: -10px;
-                    font-size: 11px;
-                }
-
-                .navArrow {
-                    width: 35px;
-                    height: 35px;
-                    font-size: 16px;
-                }
-
-                .prevArrow {
-                    left: -15px;
-                }
-
-                .nextArrow {
-                    right: -15px;
-                }
-            }
-
-            @media (max-width: 576px) {
-                #imageAnnouncementOverlay {
-                    padding: 10px;
-                }
-                
-                #imageAnnouncementPopup {
-                    max-width: 100%;
-                    max-height: 85vh;
-                }
-
-                .imageContainer {
-                    padding-bottom: 60%; /* Slightly taller on mobile */
-                }
-                
-                .imageCloseBtn {
-                    top: -8px;
-                    right: -8px;
-                    width: 32px;
-                    height: 32px;
-                    font-size: 16px;
-                }
-
-                .adCounter {
-                    top: -8px;
-                    left: -8px;
-                    font-size: 10px;
-                    padding: 4px 8px;
-                }
-
-                .navArrow {
-                    width: 32px;
-                    height: 32px;
-                    font-size: 14px;
-                }
-
-                .prevArrow {
-                    left: -12px;
-                }
-
-                .nextArrow {
-                    right: -12px;
-                }
-            }
-
-            @media (max-width: 400px) {
                 #imageAnnouncementOverlay {
                     padding: 5px;
                 }
                 
-                .imageContainer {
-                    padding-bottom: 65%; /* Even taller on very small screens */
-                    border-radius: 8px;
+                #imageAnnouncementPopup {
+                    max-width: 100%;
+                    margin: 0 auto;
                 }
-                
+
+                .imageContainer {
+                    border-radius: 5px;
+                }
+
+                .announcementImage {
+                    width: 100%;
+                    height: auto;
+                    max-height: 85vh;
+                    object-fit: cover;
+                }
+
                 .imageCloseBtn {
                     top: -5px;
                     right: -5px;
                     width: 30px;
                     height: 30px;
-                    font-size: 14px;
+                    font-size: 16px;
                 }
 
                 .adCounter {
                     top: -5px;
                     left: -5px;
-                    font-size: 9px;
+                    font-size: 10px;
                     padding: 3px 6px;
                 }
 
                 .navArrow {
                     width: 30px;
                     height: 30px;
+                    font-size: 14px;
+                }
+
+                .prevArrow {
+                    left: -10px;
+                }
+
+                .nextArrow {
+                    right: -10px;
+                }
+            }
+
+            /* Desktop */
+            @media (min-width: 769px) {
+                #imageAnnouncementOverlay {
+                    padding: 20px;
+                }
+                
+                #imageAnnouncementPopup {
+                    max-width: 600px;
+                }
+
+                .imageContainer {
+                    border-radius: 10px;
+                }
+
+                .announcementImage {
+                    width: 100%;
+                    height: auto;
+                    max-height: 80vh;
+                    object-fit: contain;
+                }
+
+                .imageCloseBtn {
+                    top: -15px;
+                    right: -15px;
+                    width: 40px;
+                    height: 40px;
+                    font-size: 20px;
+                }
+
+                .adCounter {
+                    top: -15px;
+                    left: -15px;
+                    font-size: 12px;
+                    padding: 5px 10px;
+                }
+
+                .navArrow {
+                    width: 40px;
+                    height: 40px;
+                    font-size: 18px;
+                }
+
+                .prevArrow {
+                    left: -20px;
+                }
+
+                .nextArrow {
+                    right: -20px;
+                }
+            }
+
+            /* Very small mobile devices */
+            @media (max-width: 360px) {
+                #imageAnnouncementOverlay {
+                    padding: 2px;
+                }
+                
+                .imageCloseBtn {
+                    top: -3px;
+                    right: -3px;
+                    width: 25px;
+                    height: 25px;
+                    font-size: 14px;
+                }
+
+                .adCounter {
+                    top: -3px;
+                    left: -3px;
+                    font-size: 9px;
+                    padding: 2px 5px;
+                }
+
+                .navArrow {
+                    width: 25px;
+                    height: 25px;
                     font-size: 12px;
                 }
 
@@ -298,21 +292,11 @@ class SimpleImageAnnouncement {
                 }
             }
 
-            /* For very tall screens */
-            @media (max-height: 600px) {
-                #imageAnnouncementPopup {
+            /* Landscape mode on mobile */
+            @media (max-height: 500px) and (orientation: landscape) {
+                .announcementImage {
                     max-height: 90vh;
-                }
-                
-                .imageContainer {
-                    padding-bottom: 70%;
-                }
-            }
-
-            /* For very wide screens */
-            @media (min-width: 1600px) {
-                #imageAnnouncementPopup {
-                    max-width: 700px;
+                    object-fit: contain;
                 }
             }
             </style>
@@ -372,7 +356,7 @@ class SimpleImageAnnouncement {
     preloadImages() {
         // Preload all images for smooth navigation
         this.ads.forEach((adSrc, index) => {
-            if (index > 0) { // Skip first image as it's already loaded
+            if (index > 0) {
                 const img = new Image();
                 img.src = adSrc;
             }
