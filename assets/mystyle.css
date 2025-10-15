@@ -1585,12 +1585,7 @@ body.menu-open {
             left: 0;
         }
         
-        .course-highlights {
-            background: var(--light);
-            padding: 40px;
-            border-radius: 10px;
-            margin: 30px 0;
-        }
+
         
         .highlight-item {
             display: flex;
