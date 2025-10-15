@@ -1168,8 +1168,8 @@ body.menu-open {
 
         /* Government Programs Section Styling */
         .government-programs {
-            padding: 60px 0;
-            background-color: #f8f9fa;
+            padding: 80px 0;
+            background-color: var(--light);
         }
         
         .programs-container {
@@ -1179,71 +1179,250 @@ body.menu-open {
         }
         
         .program-section {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color, #e9ecef);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .program-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
+        .program-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .program-header {
+            text-align: center;
+            margin-bottom: 35px;
         }
         
         .program-section h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
+            color: var(--text);
+            margin-bottom: 15px;
             font-weight: 700;
-            text-align: center;
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .program-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .program-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
         }
         
         .program-section p {
-            color: #555;
-            margin-bottom: 25px;
-            text-align: center;
-            line-height: 1.6;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .courses-table-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
         }
         
         .courses-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            background: var(--white);
+        }
+        
+        .courses-table thead {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
         }
         
         .courses-table th {
-            background-color: #2c3e50;
             color: white;
-            padding: 12px 15px;
+            padding: 18px 20px;
             text-align: left;
             font-weight: 600;
+            font-size: 1.05rem;
+            position: relative;
+        }
+        
+        .courses-table th:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 60%;
+            width: 1px;
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .courses-table tbody tr {
+            transition: var(--transition);
+            border-bottom: 1px solid var(--border-color, #e9ecef);
+        }
+        
+        .courses-table tbody tr:hover {
+            background-color: rgba(0, 174, 255, 0.05);
+        }
+        
+        .courses-table tbody tr:last-child {
+            border-bottom: none;
         }
         
         .courses-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .courses-table tr:nth-child(even) {
-            background-color: #f9f9f9;
+            padding: 16px 20px;
+            color: var(--text);
+            font-weight: 500;
         }
         
         .course-name {
             font-weight: 600;
-            color: #2c3e50;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .course-name i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+        
+        .duration-badge {
+            background: rgba(0, 174, 255, 0.1);
+            color: var(--primary-dark);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .days-badge {
+            background: rgba(0, 188, 212, 0.1);
+            color: var(--accent);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
         }
         
         .note-box {
-            background-color: #e8f4fd;
-            border-left: 4px solid #3498db;
-            padding: 15px 20px;
-            border-radius: 4px;
+            background: linear-gradient(135deg, rgba(0, 174, 255, 0.05), rgba(0, 188, 212, 0.05));
+            border-left: 4px solid var(--accent);
+            padding: 20px 25px;
+            border-radius: 8px;
+            margin-top: 10px;
         }
         
         .note-box p {
             margin: 0;
             text-align: left;
-            color: #2c3e50;
+            color: var(--text);
+            font-weight: 500;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .note-box i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 2px;
         }
         
         /* Mobile Responsive Styles */
+        @media (max-width: 992px) {
+            .government-programs {
+                padding: 60px 0;
+            }
+            
+            .program-section {
+                padding: 30px 25px;
+            }
+            
+            .program-section h2 {
+                font-size: 1.9rem;
+            }
+        }
+        
         @media (max-width: 768px) {
+            .government-programs {
+                padding: 50px 0;
+            }
+            
+            .program-section {
+                padding: 25px 20px;
+                margin-bottom: 40px;
+            }
+            
+            .program-section h2 {
+                font-size: 1.7rem;
+            }
+            
+            .program-section p {
+                font-size: 1rem;
+            }
+            
+            .courses-table-container {
+                border-radius: 8px;
+                overflow-x: auto;
+            }
+            
+            .courses-table {
+                min-width: 600px;
+            }
+            
+            .courses-table th {
+                padding: 14px 16px;
+                font-size: 1rem;
+            }
+            
+            .courses-table td {
+                padding: 12px 16px;
+            }
+            
+            .note-box {
+                padding: 16px 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
             .government-programs {
                 padding: 40px 0;
             }
@@ -1257,41 +1436,65 @@ body.menu-open {
                 font-size: 1.5rem;
             }
             
-            .courses-table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
+            .program-badge {
+                font-size: 0.8rem;
+                padding: 5px 12px;
             }
             
-            .courses-table thead th {
-                font-size: 0.9rem;
-                padding: 10px 8px;
+            .courses-table th {
+                padding: 12px 14px;
+                font-size: 0.95rem;
             }
             
             .courses-table td {
+                padding: 10px 14px;
                 font-size: 0.9rem;
-                padding: 10px 8px;
+            }
+            
+            .duration-badge, .days-badge {
+                font-size: 0.8rem;
+                padding: 4px 10px;
             }
             
             .note-box {
-                padding: 12px 15px;
+                padding: 14px 16px;
             }
         }
         
-        @media (max-width: 576px) {
-            .program-section h2 {
-                font-size: 1.3rem;
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --border-color: #343a40;
             }
-            
-            .courses-table {
-                font-size: 0.85rem;
-            }
-            
-            .courses-table thead th {
-                padding: 8px 6px;
-            }
-            
-            .courses-table td {
-                padding: 8px 6px;
-            }
+        }
+        
+        /* Ensure compatibility with existing dark mode implementation */
+        body.dark-mode .government-programs {
+            background-color: var(--bg-secondary, #1e1e1e);
+        }
+        
+        body.dark-mode .program-section {
+            background: var(--bg-card, #1e1e1e);
+        }
+        
+        body.dark-mode .courses-table {
+            background: var(--bg-card, #1e1e1e);
+        }
+        
+        body.dark-mode .courses-table tbody tr:hover {
+            background-color: rgba(0, 174, 255, 0.1);
+        }
+        
+        body.dark-mode .duration-badge {
+            background: rgba(0, 174, 255, 0.15);
+            color: var(--primary);
+        }
+        
+        body.dark-mode .days-badge {
+            background: rgba(0, 188, 212, 0.15);
+            color: var(--accent);
+        }
+        
+        body.dark-mode .note-box {
+            background: linear-gradient(135deg, rgba(0, 174, 255, 0.08), rgba(0, 188, 212, 0.08));
         }
