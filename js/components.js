@@ -329,12 +329,31 @@ class ComponentManager {
 
 // === Global Loading Screen ===
 document.addEventListener("DOMContentLoaded", () => {
+    // Get current page path and determine correct image path
+    const currentPath = window.location.pathname;
+    const isInCoursesFolder = currentPath.includes('/pages/courses/');
+    
+    // Calculate correct image path based on current folder depth
+    let imagePath = '../images/SOS Logo.png'; // Default for pages in root
+    
+    if (currentPath.includes('/pages/courses/')) {
+        // For pages inside pages/courses/ folder - need to go up 2 levels
+        imagePath = '../../images/SOS Logo.png';
+    } else if (currentPath.includes('/pages/')) {
+        // For pages inside pages/ folder - need to go up 1 level
+        imagePath = '../images/SOS Logo.png';
+    } else {
+        // For root pages
+        imagePath = './images/SOS Logo.png';
+    }
+
     // Create Loader Element
     const loader = document.createElement('div');
     loader.id = 'loader';
     loader.innerHTML = `
         <div style="text-align:center">
-            <img src="../images/SOS Logo.png" alt="SOSTTI Logo" id="loader-logo">
+            <img src="${imagePath}" alt="SOSTTI Logo" id="loader-logo">
+            ${isInCoursesFolder ? '<p style="margin-top: 20px; color: #333; font-family: Arial, sans-serif;">Loading Course Content...</p>' : ''}
         </div>
     `;
     document.body.appendChild(loader);
@@ -374,6 +393,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     `;
     document.head.appendChild(style);
+
+    // Debug current path
+    console.log('Current path:', currentPath);
+    console.log('Image path:', imagePath);
 
     // Hide Loader When Page Fully Loaded
     window.addEventListener("load", () => {
