@@ -327,95 +327,32 @@ class ComponentManager {
     }
 }
 
-// === Global Loading Screen ===
-document.addEventListener("DOMContentLoaded", () => {
-    // Use absolute path from root
-    const imagePath = '/images/SOS Logo.png';
-
-    // Create Loader Element
-    const loader = document.createElement('div');
-    loader.id = 'loader';
-    loader.innerHTML = `
-        <div style="text-align:center">
-            <img src="${imagePath}" alt="SOSTTI Logo" id="loader-logo">
-            <p style="margin-top: 20px; color: #333; font-family: Arial, sans-serif;">
-                Loading<span class="loading-dots"></span>
-            </p>
+loader.innerHTML = `
+    <div style="text-align:center">
+        <img src="${imagePath}" alt="SOSTTI Logo" id="loader-logo">
+        <div style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <div class="spinner"></div>
+            <span style="color: #333; font-family: Arial, sans-serif;">Loading...</span>
         </div>
-    `;
-    document.body.appendChild(loader);
+    </div>
+`;
 
-    // Add Loader CSS
-    const style = document.createElement('style');
-    style.textContent = `
-        #loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #ffffff;
-            backdrop-filter: blur(3px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
-        }
+// Add to CSS:
+style.textContent += `
+    .spinner {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #f3f3f3;
+        border-top: 2px solid #333;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
 
-        #loader-logo {
-            width: 120px;
-            animation: pulse 1.5s infinite ease-in-out;
-        }
-
-        .loading-dots::after {
-            content: '';
-            animation: dots 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
-        @keyframes dots {
-            0%, 20% { content: ''; }
-            40% { content: '.'; }
-            60% { content: '..'; }
-            80%, 100% { content: '...'; }
-        }
-
-        #loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-    `;
-    document.head.appendChild(style);
-
-    // Hide Loader When Page Fully Loaded
-    window.addEventListener("load", () => {
-        setTimeout(() => {
-            loader.classList.add("hidden");
-            console.log('✅ Loader hidden - typing effect should start soon');
-            
-            // Force start typing effect if it hasn't started
-            setTimeout(() => {
-                if (window.typingInstance && !window.typingInstance.isRunning) {
-                    window.typingInstance.start();
-                }
-            }, 1000);
-        }, 1500);
-    });
-
-    // Store typing instance globally for debugging
-    window.typingInstance = null;
-    setTimeout(() => {
-        if (window.TypingEffect) {
-            window.typingInstance = new TypingEffect();
-        }
-    }, 2000);
-});
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+`;
 
 // Initialize ComponentManager when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
