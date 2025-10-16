@@ -51,7 +51,6 @@ class SimpleImageAnnouncement {
                 justify-content: center;
                 align-items: center;
                 padding: 10px;
-                box-sizing: border-box;
             }
 
             #imageAnnouncementPopup {
@@ -95,7 +94,6 @@ class SimpleImageAnnouncement {
                 width: 100%;
                 overflow: hidden;
                 border-radius: 8px;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
                 background: transparent;
             }
 
