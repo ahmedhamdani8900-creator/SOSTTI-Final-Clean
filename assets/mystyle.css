@@ -1306,8 +1306,8 @@ body.menu-open {
   border-bottom: 1px solid var(--border-color, #0e6cca);
 }
 
-.courses-table tbody td:hover {
-  background-color: rgba(0, 38, 255, 0.219);
+.courses-table tbody tr:hover {
+  background-color: rgba(7, 51, 134, 0.301);
 }
 
 .courses-table td {
