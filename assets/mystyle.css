@@ -1425,6 +1425,21 @@ body.dark-mode .note-box {
             box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
         
+        
+        .level {
+            display: inline-block;
+            background-color:rgba(1, 99, 144, 0.9);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .module-card p {
+            color: #555;
+        }
+        
         .module-number {
             display: inline-block;
             background: var(--accent);
